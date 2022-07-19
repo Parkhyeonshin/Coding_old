@@ -7,6 +7,7 @@
     <title>자바스크립트 : 데이터 저장하기</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/drcula.css">
 </head>
 <body>
     <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
@@ -29,14 +30,62 @@
             </ul>
             <ul class="study">
                 <li><a href="#">기본 규칙</a></li>
-                <li><a href="#">기본 영역</a></li>
+                <li><a href="#">기본 명령어</a></li>
             </ul>
         </nav>
     </header>
     <!-- //header -->
     
     <main id="main">
-        <div class="main_script"></div>
+        <div class="main_menu">
+            <ul>
+                <li><a href="#sample01"></a>01. 변수 : 데이터 저장</li>
+                <li><a href="#sample02"></a>02. 변수 : 데이터 저장 + 데이터 변경</li>
+                <li><a href="#sample03"></a>03. 변수 : 데이터 저장 + 데이터 변경 + 데이터 추가</li>
+                <li><a href="#sample04"></a>04. 변수 : 지역변수 + 전역변수 + 매개변수</li>
+                <li><a href="#sample05"></a>05. 상수 : 데이터 저장 + 데이터 변경(X)</li>
+                <li><a href="#sample06"></a>06. 배열 : 여러개의 데이터를 저장 : 표현 방법 1</li>
+                <li><a href="#sample07"></a>07. 배열 : 데이터 저장(여러개) : 표현방법 2</li>
+                <li><a href="#sample08"></a>08. 배열 : 데이터 저장(여러개) : 표현방법 3</li>
+                <li><a href="#sample09"></a>09. 배열 : 데이터 저장(여러개) : 표현방법 4</li>
+                <li><a href="#sample10"></a>10. 객체 : 데이터 저장(키+값) : 표현방법 1</li>
+                <li><a href="#sample11"></a>11. 객체 : 데이터 저장(키+값) : 표현방법 2</li>
+                <li><a href="#sample12"></a>12. 객체 : 데이터 저장(키+값) : 표현방법 3</li>
+                <li><a href="#sample13"></a>13. 객체 : 데이터 저장(키+값) : 표현방법 4</li>
+                <li><a href="#sample14"></a>14. 객체 : 데이터 저장(키+값) : 표현방법 5</li>
+                <li><a href="#sample15"></a>15. 객체 : 데이터 저장(키+값) : 표현방법 6</li>
+                <li><a href="#sample16"></a>16. 객체 : 데이터 저장(키+값) : 표현방법 7</li>
+                <li><a href="#sample17"></a>17. 객체 : 데이터 저장(키+값) : 표현방법 8</li>
+            </ul>
+        </div>
+        <div class="main_sample">
+            <div id="sample01" class="sample">
+                <h3>01. 변수 : 데이터 저장</h3>
+                <p> 변수는 데이터를 저장하는 저장소 입니다.
+                    이 저장소에는 숫자, 문사, 함수, 객체 등을 저장할 수 있습니다.
+                </p>
+                <div class="script"></div>
+<pre><code class="language-js">
+    var x = 100;
+    var y = 200;
+    var z = "javascript";
+
+    document.wirte(x);
+    document.wirte(y);
+    document.wirte(z);
+</code></pre>                
+                <div class="result">
+                    <details>   
+                        <summary>결과보기</summary>
+                        <div>
+                            100<br>
+                            200<br>
+                            "javascript"
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
         <div class="main_desc"></div>
     </main>
     <!-- //main -->
@@ -45,5 +94,11 @@
         <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
     </footer>
     <!-- //footer -->
+
+
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
 </body>
 </html>
