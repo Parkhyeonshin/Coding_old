@@ -435,8 +435,8 @@ document.write(obj.c);
                 <div class="script">
 <pre><code class="language-js">const obj = {
     a : 100,
-    b : [200, 300],
-    c : {x:400, y:500},
+    b : [200, 300],                    //객체안에 배열
+    c : {x:400, y:500},                //객체안에 객체
     d : "javascript",
     e : function(){
         document.write("자바스크립트가 실행되었습니다.");
@@ -445,7 +445,7 @@ document.write(obj.c);
         document.write( obj.d + "가 실행되었습니다.");
         },
     g : function(){
-        document.write( this.d + "가 실행되었습니다.");
+        document.write( this.d + "가 실행되었습니다.");     //메서드안에서 쓴 this는 해당 메서드를 호출한 객채로 바인딩됨.
         }
     
 }
@@ -455,10 +455,10 @@ document.write(obj.b[0]);
 document.write(obj.b[1]);
 document.write(obj.b);
 document.write(obj.c.x);
-document.write(obj.c.y);
-document.write(obj.c);
+document.write(obj.c.y);        //객체 c안의 y 500출력
+document.write(obj.c);          
 document.write(obj.d);
-obj.e();
+obj.e();    //함수를 실행
 obj.f();
 obj.g();
 </code></pre>             

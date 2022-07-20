@@ -206,27 +206,33 @@ for( let i = 0; i &lt; num.length; i++){
 document.write(num[i]);
 }
 
-document.write("<br><br>");
+document.write();
 
 // forEach()를 이용해서 출력
 num.forEach(function(el){document.write(el);});           //콜백함수 : 함수안에 함수, 첫번째 함수가 끝나고 그다음 함수 작동
 
-document.write("<br><br>");
-
 // forEach() 3가지 인자()값
 num.forEach(function(el, index, array){
-document.write(el,"<br>");
-document.write(index,"<br>");
-document.write(array,"<br>");
+document.write(el);
+document.write(index);
+document.write(array);
 
-    })
+})
 </code></pre>     
                 </div>           
                 <div class="result">
                     <details>   
                         <summary>결과보기</summary>
                             <div class="sample07_result">
-
+                            <p>
+                                100200300400500<br><br>
+                                100200300400500<br><br>
+                                100<br>0<br>100,200,300,400,500<br>
+                                200<br>1<br>100,200,300,400,500<br>
+                                300<br>2<br>100,200,300,400,500<br>
+                                400<br>3<br>100,200,300,400,500<br>
+                                500<br>4<br>100,200,300,400,500<br>
+                            </p>
                         </div>
                     </details>
                 </div>
@@ -343,22 +349,22 @@ document.write(array,"<br>");
             const num = [100, 200, 300, 400, 500];
 
             // for문 이용해서 출력
-            for( let i = 0; i < num.length; i++){
-                document.write(num[i]);
-            }
+            // for( let i = 0; i < num.length; i++){
+            //     document.write(num[i]);
+            // }
 
-            document.write("<br><br>");
+            // document.write("<br><br>");
 
             // forEach()를 이용해서 출력
-            num.forEach(function(el){document.write(el);});           //콜백함수 : 함수안에 함수, 첫번째 함수가 끝나고 그다음 함수 작동
+            // num.forEach(function(el){document.write(el);});           //콜백함수 : 함수안에 함수, 첫번째 함수가 끝나고 그다음 함수 작동
 
-            document.write("<br><br>");
+            // document.write("<br><br>");
 
             // forEach() 3가지 인자()값
             num.forEach(function(el, index, array){
-                document.write(el,"<br>");
-                document.write(index,"<br>");
-                document.write(array,"<br>");
+                // document.write(el,"<br>");
+                // document.write(index,"<br>");
+                // document.write(array,"<br>");
 
             })
 
