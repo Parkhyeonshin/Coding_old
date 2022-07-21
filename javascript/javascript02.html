@@ -210,17 +210,18 @@ for(let i = 0; i&lt;arr.length; i++){           //for(초기값, 조건식, 증�
 
 // for문 이용해서 출력
 for( let i = 0; i &lt; num.length; i++){
-document.write(num[i]);
+    document.write(num[i]);
 }
 
 // forEach()를 이용해서 출력
-num.forEach(function(el){document.write(el);});           //콜백함수 : 함수안에 함수, 첫번째 함수가 끝나고 그다음 함수 작동
+num.forEach(function(el){
+    document.write(el);});           //콜백함수 : 함수안에 함수, 첫번째 함수가 끝나고 그다음 함수 작동
 
 // forEach() 3가지 인자()값
 num.forEach(function(el, index, array){
-document.write(el);                                      //el=elemnet=요소값
-document.write(index);                                  //index=i
-document.write(array);                                  //array=배열
+    document.write(el);                                      //el=elemnet=요소값
+    document.write(index);                                  //index=i
+    document.write(array);                                  //array=배열
 })              
 </code></pre>     
                 </div>           
