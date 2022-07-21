@@ -81,16 +81,14 @@ for(let i = 1; i&lt;=100; i+=){ //i+=2 --> i = i + 2
 <pre><code>//for문을 이용해서 테이블 출력하기
 let table = "&lt;table&gt;";
 
-    for( let i = 0; i&lt;10; i++){
+    for( let i = 0; i &lt; 10; i++ ){
         table += "&lt;tr&gt;";
-        
-        for(let j = 0; j&lt;10; j++){
-            table += "&lt;td&gt;^3^&lt;/td&gt;"
-        }
 
+        for( let j = 0; j &lt; 10; j++){            // for문 안의 for문
+            table += "&lt;td&gt;😎&lt;/td&gt;"
+        }
         table += "&lt;/tr&gt;";
     }
-    
     table += "&lt;/table&gt;";
 
 document.write(table);
