@@ -26,7 +26,7 @@
                 <li><a href="javascript08.html">숫자 객체</a></li>
                 <li><a href="javascript09.html">브라우저 객체</a></li>
                 <li><a href="javascript10.html">요소 객체</a></li>
-                <li><a href="javascript11.html">이벤트 객체</a></li>
+                <li><a href="javascript11.html">이벤트 객체</a></li>    
             </ul>
             <ul class="study">
                 <li><a href="study/basic.html">기본 규칙</a></li>
@@ -69,6 +69,7 @@
         <div class="main_sample">
             <div id="sample01" class="sample">  <!--1번-->
                 <h3>01. 변수 : 데이터 불러오기</h3>
+                <p>데이터를 저장할 수 있고 데이터를 불러올 수 있습니다.</p>
                 <div class="script">
 <pre><code class="language-js">let x = 100;
 let y = 200;
@@ -92,11 +93,11 @@ document.write(z)
             </div>  <!--/1번-->
             <div id="sample02" class="sample">  <!--2번-->
                 <h3>02. 상수 : 데이터 불러오기</h3>
+                <p>상수도 데이터를 불러올 수 있습니다.</p>
                 <div class="script">
 <pre><code class="language-js">const x = 100,
          y = 200,
          z = "javascript"                       
-
 
 document.write(x);
 document.write(y);
@@ -114,6 +115,7 @@ document.write(z);
             </div>  <!--/2번-->
             <div id="sample03" class="sample">  <!--3번-->
                 <h3>03. 배열 : 데이터 불러오기</h3>
+                <p>배열의 데이터를 불러오는 방법 1</p>
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, "javascript"]
 
@@ -133,9 +135,9 @@ document.write(arr[2]);
             </div>  <!--/3번-->
             <div id="sample04" class="sample">  <!--4번-->
                 <h3>04. 배열 : 데이터 불러오기 : 2차 배열</h3>
+                <p> 배열의 데이터를 불러오는 방법 2 </p>
                 <div class="script">
-<pre><code class="language-js">const arr = [100, 200, ["javascript", "jquery"]]; 
-                              //배열 in 배열(문자열 "javascript"와"jquery"로 이루어짐)
+<pre><code class="language-js">const arr = [100, 200, ["javascript", "jquery"]];    //배열 in 배열(문자열 "javascript"와"jquery"로 이루어짐)
 
 document.write(arr[0]);
 document.write(arr[1]);
@@ -154,6 +156,7 @@ document.write(arr[2][1]);          //3번째 값(배열)안의 2번재 값 추�
             </div>  <!--/4번-->
             <div id="sample05" class="sample">  <!--5번-->
                 <h3>05. 배열 : 데이터 불러오기 : 갯수 구하기</h3>
+                <p> 배열의 데이터를 불러오는 방법 3</p>
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, "javascript"];
 
@@ -171,6 +174,7 @@ document.write(arr.length); // lenght : 배열의 갯수 출력
             </div>  <!--/5번-->
             <div id="sample06" class="sample">  <!--6번-->
                 <h3>06. 배열 : 데이터 불러오기 : for()문</h3>
+                <p> 배열의 데이터를 불러오는 방법 4</p>
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, 300, 400, 500, 600, 700 ,800 ,900];
 
@@ -183,7 +187,6 @@ document.write(arr.length); // lenght : 배열의 갯수 출력
 // document.write(arr[6]);
 // document.write(arr[7]);
 // document.write(arr[8],"<br>");
-
 
 for(let i = 0; i&lt;arr.length; i++){           //for(초기값, 조건식, 증감식)_값이 많아지면 번거롭기때문에 사용
     document.write(arr[i]);
@@ -201,6 +204,7 @@ for(let i = 0; i&lt;arr.length; i++){           //for(초기값, 조건식, 증�
             </div>  <!--/6번-->
             <div id="sample07" class="sample">  <!--7번-->
                 <h3>07. 배열 : 데이터 불러오기 : forEach()</h3>
+                <p> 배열의 데이터를 불러오는 방법 5</p>
                 <div class="script">
 <pre><code class="language-js">const num = [100, 200, 300, 400, 500];
 
@@ -239,6 +243,7 @@ document.write(array);                                  //array=배열
             </div>  <!--/7번-->
             <div id="sample08" class="sample">  <!--8번-->
                 <h3>08. 배열 : 데이터 불러오기 : for of</h3>
+                <p> 배열의 데이터를 불러오는 방법 6</p>
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
 
@@ -260,6 +265,7 @@ for( let i of arr ){
             </div>  <!--/8번-->
             <div id="sample09" class="sample">  <!--9번-->
                 <h3>09. 배열 : 데이터 불러오기 : for in</h3>
+                <p> 배열의 데이터를 불러오는 방법 6</p>
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
         
@@ -282,6 +288,7 @@ for( let i in arr ){
             </div>  <!--/9번-->
             <div id="sample10" class="sample">  <!--10번-->
                 <h3>10. 배열 : 데이터 불러오기 : map()</h3>
+                <p> 배열의 데이터를 불러오는 방법 7 (forEach()문과 비슷함)</p>
                 <p> </p>
                 <div class="script">
 <pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
@@ -289,6 +296,7 @@ for( let i in arr ){
 //forEach문을 이용해서 값을 출력
 arr.forEach(function(el){
     document.write(el);
+    console.log(el);                    //console.log의 값은 관리자도구-'console'에서 확인 가능
 });
 
 arr.forEach(function(el, index, array){
