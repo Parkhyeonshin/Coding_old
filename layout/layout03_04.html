@@ -16,9 +16,11 @@
     #wrap{
         width: 1200px;
         margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
     }
     #header{
-        width: 100% ;
+        width: 100%;
         height: 100px;
         background-color: #B3E5FC;
     }
@@ -28,73 +30,66 @@
         background-color: #81D4FA;
     }
     #left_aside{
-        width: 30%;
+        width: 25%;
         height: 780px;
         background-color: #4FC3F7;
-        float: left;
+
+    }
+    .box {
+        width: 75%;
     }
     #aside{
-        width: 70%;
+        width: 100%;
         height: 260px;
         background-color: #29B6F6;
-        float: left;
+
     }
     #section{
-        width: 70%;
+        width: 100%;
         height: 260px;
         background-color: #03A9F4;
-        float: left;
+
     }
     #article{
-        width: 70%;
+        width: 100%;
         height: 260px;
         background-color: #039BE5;
-        float: left;
+    
     }
     #footer{
         width: 100%;
         height: 100px;
         background-color: #0288D1;
-        clear: both;
     }
     @media (max-width: 1220px){
-        #wrap{
-            width: 96%;
-        }
-        #left_aside{
-            width: 30%;
-        }
-        #aside{
-            width: 70%;
-        }
-        #section{
-            width: 35%;
-            height: 520px;
-        }
-        #article{
-            width: 35%;
-            height: 520px;
-        }
+            #wrap{
+                width: 96%;
+            }
+            .box #section{
+                width: 50%;
+                height: 520px;
+            }
+            .box #article{
+                width: 50%;
+                height: 520px;
+            }
     }
     @media (max-width: 768px){
         #wrap{
             width: 100%;
         }
-        #left_aside{
-            width: 30%;
-        }
         #aside{
-            width: 70%;
-            height: 390px;
+            width: 100%;
+            height: 50%;
         }
-        #section{
-            width: 70%;
-            height: 390px;
+        #section {
+            width: 100%;
+            height: 50%;
         }
         #article{
             display: none;
         }
-    }
+    }  
     @media (max-width: 480px){
         #wrap{
             width: 100%;
@@ -103,31 +98,35 @@
             width: 100%;
             height: 200px;
         }
+        .box {
+            width: 100%;
+        }
         #aside{
             width: 100%;
             height: 430px;
         }
-        #section{
+        #section {
             width: 100%;
             height: 150px;
         }
         #article{
             display: none;
         }
-        #footer {
-            width: 100%;
-        }
     }
 </style>
 <body>
-    <div id="wrap">
-        <div id="header"></div>
-        <div id="nav"></div>
-        <div id="left_aside"></div>
-        <div id="aside"></div>
-        <div id="section"></div>
-        <div id="article"></div>
-        <div id="footer"></div>
+    <div>
+        <div id="wrap">
+            <div id="header"></div>
+            <div id="nav"></div>
+            <div id="left_aside"></div>
+            <div class="box">
+                <div id="aside"></div> 
+                <div id="section"></div>
+                <div id="article"></div>
+            </div>
+            <div id="footer"></div>
+        </div>
     </div>
 </body>
 </html>

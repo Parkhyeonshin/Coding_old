@@ -14,12 +14,10 @@
         background-color: #E1F5FE;
     }
     #wrap{
-        border: 1px solid #000;   /* 확인하고 지우기 */
         width: 1200px;
         margin: 0 auto;
         display: flex;
-        /* flex-direction: column; */
-
+        flex-wrap: wrap;
     }
     #header{
         width: 1200px;
@@ -36,6 +34,9 @@
         height: 780px;
         background-color: #4FC3F7;
 
+    }
+    .box {
+        width: 900px;
     }
     #aside{
         width: 900px;
@@ -62,14 +63,16 @@
     }
 </style>
 <body>
-    <div id="pense">
+    <div>
         <div id="wrap">
             <div id="header"></div>
             <div id="nav"></div>
             <div id="left_aside"></div>
-            <div id="aside"></div>
-            <div id="section"></div>
-            <div id="article"></div>
+            <div class="box">
+                <div id="aside"></div>
+                <div id="section"></div>
+                <div id="article"></div>
+            </div>
             <div id="footer"></div>
         </div>
     </div>
