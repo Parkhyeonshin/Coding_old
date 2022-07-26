@@ -43,21 +43,33 @@
     <main id="main">  <!--main start-->
         <div class="document">
             <h2 class="t_tit">조건문</h2>
-            <p class="t_box">
-                특정 조건 만족 시(true) 실행하는 명령의 집합입니다. 조건문은 if문, switch문이 있습니다.
+            <p class="t_desc2">
+                특정 <i>조건 만족 시(true) 실행</i>하는 명령의 집합입니다.<br>조건문은 if문, switch문이 있습니다.
             </p>
 
             <hr>
 
             <h3 class="t_tit2">01_ if문</h3>
-            <p class="t_desc">if문에는 3가지 형식이 있다.</p>
+            <p class="t_desc">if문에는 3가지 형식이 있습니다.<br><br>
+                1) 조건이 <b>true 인 경우 실행문을</b> 실행합니다.
+            </p>
             <p class="t_box">
                 if (조건식) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp; 실행문;<br>}
             </p>
+            <br>
+            <p class="t_desc">
+                2) 조건이 <b>true 인 경우 실행문1을, false일 경우 실행문2를</b> 실행합니다.
+            </p>
             <p class="t_box">
                 if (조건식) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; 실행문1;<br>} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;실행문2;<br>}
+                    &nbsp;&nbsp;&nbsp;&nbsp; 실행문1;<br>} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;실행문2;<br>}
+                </p>
+            <br>
+            <p class="t_desc">
+                3) 조건1이 true일 경우 실행문1을, false일 경우 조건2를 비교하여
+                조건2가 true일 경우 실행문2를, 아닐경우 실행문3을 실행합니다.
+                <br><b> (조건이 false일 경우 다음 조건식을 비교합니다.)</b>
             </p>
             <p class="t_box">
                 if (조건식) {<br>
@@ -71,7 +83,9 @@
             </p>
             <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js">
             </script> --><!--코드팬-->
-            <p class="t_desc">if문은 if문안에 또 다른 if문을 중첩하여 사용할 수 있습니다.</p>
+            <p class="t_desc">
+                4) if문은 <b>if문안에 또 다른 if문을 중첩</b>하여 사용할 수 있습니다.
+            </p>
             <p class="t_box">
                 if(조건식1){<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;if(조건식2){<br>
@@ -123,8 +137,9 @@
             <hr>
 
             <h3 class="t_tit2">02_ switch문</h3>
-            <p class="t_desc">switch(값)의 값과 case의 값들을 하나씩 비교하여 일치하는 case를 실행시켜 줍니다.<br>
-            if문과 다르게 특정조건에 만족했을 때 블록{}을 스스로 빠져나가지 못하므로 break명령어를 주어 블록을 빠져 나가도록 합니다.
+            <p class="t_desc">switch(값)의 값과 case의 값들을 <i>하나씩 비교하여 일치하는 case를 실행</i>시켜 줍니다.<br>
+            if문과 다르게 특정조건에 만족했을 때 블록{}을 스스로 빠져나가지 못하므로
+            break명령어를 주어 블록을 빠져 나가도록 합니다.
             </p>
             <p class="t_box">
                 switch(값) {<br>
