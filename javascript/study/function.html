@@ -35,8 +35,7 @@
                 <li><a href="if.html">조건문</a></li>
                 <li><a href="#.html">데이터 타입</a></li>
                 <li><a href="function.html">함수</a></li>
-
-
+                <li><a href="var.html">지역변수/전역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -128,7 +127,7 @@ document.write(func());
                     </div>
                 </details>
             </div>
-            <h3 class="t_tit2">05_ 화살표 함수</h3>
+            <h3 class="t_tit2">05_ 화살표 함수_1</h3>
             <p class="t_desc">화살표 함수 표현은 함수표현을 간단하게 할 수 있는 대안입니다.
                 <br>- 리턴값 함수는 <i>두줄</i>이기때문에 {}는 생략불가합니다
             </p>
@@ -147,6 +146,43 @@ func();
                     <summary>결과보기</summary>
                     <div class="sample05_result">
                         함수가 실행되었습니다.5
+                    </div>
+                </details>
+            </div>
+            <!-- 블로그용 __추가내용/220728 -->
+            <h3 class="t_tit2">06_ 화살표 함수_2</h3>
+            <p class="t_desc">화살표 함수 표현은 함수표현을 간단하게 할 수 있는 대안입니다.<br>
+                익명 함수와 매개 변수, 리턴값 을 <i>한번에</i> 사용할 수 있고, <i>괄호()생략</i>에 더불어 <i>리턴(return)도 생략</i> 가능합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const func = str => str;            //리턴 생략가능 + 중괄호 생략
+
+document.write(func("함수가 실행되었습니다.6<br>"));
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample05_result">
+                        함수가 실행되었습니다.6
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">07_ 화살표 함수_3</h3>
+            <p class="t_desc">화살표 함수 표현은 함수표현을 간단하게 할 수 있는 대안입니다.<br>
+                선언적 함수와 매개 변수, 리턴값 을 <i>한번에</i> 사용할 수 있고, <i>괄호()생략</i>에 더불어 <i>리턴(return)도 생략</i> 가능합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const func = str => str;            //리턴 생략가능 + 중괄호 생략
+
+document.write(func("함수가 실행되었습니다.7<br>"));
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample05_result">
+                        함수가 실행되었습니다.7
                     </div>
                 </details>
             </div>

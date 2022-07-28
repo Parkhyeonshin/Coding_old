@@ -5,50 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        table{
-            border: 1px solid #000;
-            width: 100%;
-        }
-        table td {
-            border: 1px solid #000;
-        }
-    </style>
 </head>
 <body>
-
+    
     <script>
-        // let table = "<table>";
-
-        //     for( let i = 0; i<10; i++){
-        //         table += "<tr>";
-                
-        //         for(let j = 0; j<10; j++){
-        //             table += "<td>^3^</td>"
-        //         }
-
-        //         table += "</tr>";
-        //     }
-            
-        //     table += "</table>";
-
-        // document.write(table);
-        
         {
-            for(let i = 2; i<=9; i++){
-                for( let j =1; j<=9; j++){
-                    let sum =i * j ;
-                    document.write(i + " * " + j + " = " + sum);
-                    document.write("<br>" );
-                }
+            // 함수의 전역변수
+            var suml = 10;
+            function add1() {
+                sum1 = 20;
             }
-
-            // for( let j =1; j<=9; j++){
-            //         let sum = 6 * j;
-            //         document.write("666666666666" + " * " + j + " = " + sum,"<br>" );
-            // }
+            add1();
+            console.log('전역' + sum1);
+            // 함수의 지역변수
+            var sum2 = 30;
+            function add2() {
+                var sum2 = 40;
+                console.log('지역' + sum2);
+            }
+            add2();
+            console.log('전역' + sum2);
+            // 블록의 지역변수
+            var num1 = 50;
+            if (num1 === 0) {
+                var num1 = 60;
+            }
+            console.log('전역' + num1);
+            let num2 = 70;
+            if (num2 === 70) {
+                let num2 = 80;
+                console.log('지역' + num2);
+            }
+            console.log('전역' + num2);
         }
-        
     </script>
 </body>
 </html>

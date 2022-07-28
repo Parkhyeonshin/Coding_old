@@ -451,11 +451,22 @@
         }
 
         /* 모바일 */
-        @media (max-width: 800px){
+        @media (max-height: 700px) {
+            main::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            main {
+                min-height: 700px;
+            }
+
             h1 {
                 font-size: 40px;
             }
-            nav ul:nth-child(2){
+
+            nav ul:nth-child(2) {
                 display: none;
             }
         }
