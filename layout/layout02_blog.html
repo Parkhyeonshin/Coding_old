@@ -50,14 +50,13 @@
         <div class="document">
             <h2 class="t_tit">레이아웃(Layout) 배치</h2>
             <p class="t_desc2">
-                오늘은 기존에 배웠던 float, flex, grid를 활용하여 실제 레이아웃 배치를 해봅시다.
+                저번시간과 마찬가지로 기존에 배웠던 float, flex, grid를 활용하여 실제 레이아웃 배치를 해봅시다.<br>
                 (자세한 설명은 <a href="https://sshin4882.tistory.com/6?category=1032248"><b>여기</b></a>를 참고하세요!)<br>
-                첫번째 구조는 가장 기본이 되는 구조입니다.
+                두번째 구조는 1번 구조에서 한개가 더 추가된 구조이며, 반응형 웹 적용시 속성값을 변경해주는 구조입니다.
             </p>
             <div class="t_iframe">
-                <iframe
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fc9BGcY5k0Hg8INetHu54vZ%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D0%253A1"
-                    allowfullscreen></iframe>
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fc9BGcY5k0Hg8INetHu54vZ%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D39%253A83" allowfullscreen>
+                </iframe>
             </div>
             <hr>
 
@@ -66,17 +65,17 @@
                     foat:left 속성을 이용해 <i>좌측 빈 공간부터</i> 차곡 차곡 채워나갑니다.
                     <br>이후 아래 요소가 보이지 않는 <i>버그는 clear:both</i>속성을 사용하여 해결하였습니다.
                     <br>
-                    반응형 웹을 구현하기 위해서 모바일사이즈에서는 aside와 section의 width값을 100%로 조정해줍니다.
+                    반응형 웹을 구현하기 위해서 width와 height의 값을 조정해줍니다.
                 </p>
                 <div class="image-wrapper">
-                <img class="image" src="../assets/tistory/layout01/01-float.png">
+                <img class="image" src="../assets/tistory/layout02/02-float.png">
                 </div>
                 <div class="t_code">
 <pre><code class="language-css">*{
     margin: 0;
 }
 body{
-    background-color: #FFF3E0;
+    background-color: #E8F5E9;
 }
 #wrap{
     width: 1200px;
@@ -85,65 +84,84 @@ body{
 #header{
     width: 100%;
     height: 100px;
-    background-color: #FFE0B2;
+    background-color: #C8E6C9;
 }
 #nav{
     width: 100%;
     height: 100px;
-    background-color: #FFCC80;
+    background-color: #A5D6A7;
 }
 #aside{
-    width: 30%;
+    width: 25%;
     height: 780px;
-    background-color: #FFB74D;
+    background-color: #81C784;
     float: left;
 }
 #section{
-    width: 70%;
+    width: 50%;
     height: 780px;
-    background-color: #FFA726;
+    background-color: #66BB6A;
+    float: left;
+}
+#article{
+    width: 25%;
+    height: 780px;
+    background-color: #4CAF50;
     float: left;
 }
 #footer{
     width: 100%;
     height: 100px;
-    background-color: #FF9800;
+    background-color: #43A047;
     clear: both;
 }
-@media (max-width: 1200px){
-    #wrap{
-    width: 96%;
-    }
-    #aside{
-    width: 30%;
-    }
-    #section{
-    width: 70%;
-    }
+@media (max-width: 1220px){
+        #wrap{
+            width: 96%;
+        }
+        #aside{
+            width: 25%;
+        }
+        #section{
+            width: 50%;
+        }
+        #article{
+            width: 25%;
+        }
 }
-@media (max-width: 768px){
-    #wrap{
-    width: 100%;
+    @media (max-width: 768px){
+        #wrap{
+            width: 100%;
+        }
+        #aside{
+            width: 30%;
+            height: 630px;
+        }
+        #section{
+            width: 70%;
+            height: 630px;
+        }
+        #article{
+            width: 100%;
+            height: 150px;
+        }
     }
-    #aside{
-    width: 30%;
-    }
-    #section{
-    width: 70%;
-    }
-}
-@media (max-width: 480px){
-    #wrap{
-    width: 100%;
-    }
-    #aside{
-    width: 100%;
-    height: 300px;
-}
-#section{
-    width: 100%;
-    height: 480px;
-    }
+    @media (max-width: 480px){
+        #wrap{
+            width: 100%;
+        }
+        #aside{
+            width: 100%;
+            height: 200px;
+        }
+        #section{
+            width: 100%;
+            height: 430px;
+        }
+        #article{
+            width: 100%;
+            height: 150px;
+        }
 }
 </code></pre>
                 </div>
@@ -152,15 +170,15 @@ body{
                     <i>부모 요소(wrap)에</i> display:flex와 flex:wrap을 주어 자식요소들을 감쌉니다.
                     <br>반응형 웹 구현을 위해 flaot방식과 마찬가지로 <i>미디어 쿼리를 이용</i>해서 수치를 조정합니다.
                 </p>
-                <div class="image-wrapper">
+                <!-- <div class="image-wrapper">
                 <img class="image" src="../assets/tistory/layout01/01-flex.png">
                 </div>
-                <div class="t_code">
+                <div class="t_code"> -->
 <pre><code class="language-css">*{
     margin: 0;
 }
 body{
-    background-color: #FFF3E0;
+    background-color: #E8F5E9;
 }
 #wrap{
     width: 1200px;
@@ -171,139 +189,171 @@ body{
 #header{
     width: 100%;
     height: 100px;
-    background-color: #FFE0B2;
+    background-color: #C8E6C9;
 }
 #nav{
     width: 100%;
     height: 100px;
-    background-color: #FFCC80;
+    background-color: #A5D6A7;
 }
-#aside{
-    width: 30%;
+#aside{ 
+    width: 25%;
     height: 780px;
-    background-color: #FFB74D;
-    
+    background-color: #81C784;
 }
 #section{
-    width: 70%;
+    width: 50%;
     height: 780px;
-    background-color: #FFA726;
+    background-color: #66BB6A;
+}
+#article{
+    width: 25%;
+    height: 780px;
+    background-color: #4CAF50;
 }
 #footer{
-    width: 100%;
+    width: 1200px;
     height: 100px;
-    background-color: #FF9800;
+    background-color: #43A047;
 }
 @media (max-width: 1220px){
-    #wrap{
-        width: 96%;
+        #wrap{
+            width: 96%;
+        }
     }
-}
 @media (max-width: 768px){
     #wrap{
         width: 100%;
     }
-}
+    #aside{
+        width: 30%;
+        height: 630px;
+    }
+    #section {
+        width: 70%;
+        height: 630px;
+    }
+    #article{
+        width: 100%;
+        height: 150px;
+    }
+}  
 @media (max-width: 480px){
     #wrap{
         width: 100%;
     }
     #aside {
         width: 100%;
-        height: 300px;
+        height: 200px;
     }
     #section {
         width: 100%;
-        height: 480px;
+        height: 430px;
+    }
+    #article{
+        width: 100%;
+        height: 150px;
     }
 }
 </code></pre>
                 </div>
                 <h3 class="t_tit2">03_ grid를 이용한 레이아웃</h3>
                 <p class="t_desc2">
-                    앞서 grid로 레이아웃을 구성할 시 표로 생각하는게 이해하기 쉽다고 하였습니다. <br>
-                    이 구조를 <i>표로 빗대어 생각</i>하자면 <i>4x2</i>구성+각 열이 넓이를 <i>30/70%</i>씩 차지하며
+                    기존 처럼 표로 이해하자면<br>
+                    <i>4x3</i>구성+각 열이 넓이를 <i>25/50/25%</i>씩 차지하며
                     3행을 제외한 행들은 <i>병합</i>되어 있는 구조로 생각할 수 있습니다.<br>
-                    반응형 웹 구성시 모바일버전에서만 구조가 달라지므로 wrap의  grid 속성을 바꿔서 다시 부여 해줍니다.
+                    반응형 웹 구성시 각 해상도에서 wrap의  grid 속성을 바꿔서 다시 부여 해줍니다.
                 </p>
-                <div class="image-wrapper">
+                <!-- <div class="image-wrapper">
                 <img class="image" src="../assets/tistory/layout01/01-grid.png">
                 </div>
-                <div class="t_code">
+                <div class="t_code"> -->
 <pre><code class="language-css">*{
     margin: 0;
 }
 body{
-    background-color: #FFF3E0;
+    background-color: #E8F5E9;
 }
 #wrap{
     width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-areas:
-    "header header"
-    "nav nav"
-    "aside section"
-    "footer footer"
-    ;     
-
-    grid-template-columns: 30% 70%;
+    grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "aside section article"
+        "footer footer footer"
+        ;
+    grid-template-columns: 25% 50% 25%;
     grid-template-rows: 100px 100px 780px 100px;
-
 }
 #header{
     grid-area: header;
-    background-color: #FFE0B2;
+    background-color: #C8E6C9;
 }
 #nav{
     grid-area: nav;
-    background-color: #FFCC80;
+    background-color: #A5D6A7;
 }
-#aside{
+#aside{ 
     grid-area: aside;
-    background-color: #FFB74D;
-    
+    background-color: #81C784;
 }
 #section{
     grid-area: section;
-    background-color: #FFA726;
+    background-color: #66BB6A;
+}
+#article{
+    grid-area: article;
+    background-color: #4CAF50;
 }
 #footer{
     grid-area: footer;
-    background-color: #FF9800;
+    background-color: #43A047;
 }
 @media (max-width: 1220px){
-    #wrap{
-        width: 96%;
+        #wrap{
+            width: 96%;
+        }
     }
-}
 @media (max-width: 768px){
     #wrap{
-        width: 100%;
+        width:100%;
+        grid-template-areas:
+        "header header"
+        "nav nav"
+        "aside section"
+        "article article"
+        "footer footer"
+        ;     
+
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 100px 100px 630px 150px 100px;
     }
 }
 @media (max-width: 480px){
     #wrap{
         width:100%;
         grid-template-areas:
-        "header header"
-        "nav nav"
-        "aside aside"
-        "section section"
-        "footer footer"
+        "header"
+        "nav"
+        "aside"
+        "section"
+        "article"
+        "footer"
         ;     
 
-        grid-template-columns: 30% 70%;
-        grid-template-rows: 100px 100px 380px 480px 100px;
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 200px 430px 150px 100px;
     }
 }
 </code></pre>
                 </div>
                 <h4 class="t_tit3">결과</h4>
                 <div class="t_iframe">
-                    <iframe src="https://codepen.io/parkhyeonshin/embed/WNzEjmY?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                        See the Pen <a href="https://codepen.io/parkhyeonshin/pen/WNzEjmY">
-                        레이아웃1_float_반응</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    <iframe src="https://codepen.io/parkhyeonshin/embed/GRxvMoN?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/parkhyeonshin/pen/GRxvMoN">
+                        레이아웃2_float_반응</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
                         on <a href="https://codepen.io">CodePen</a>.
                     </iframe>
                 </div>
