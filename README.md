@@ -11,6 +11,12 @@ https://parkhyeonshin.github.io/Coding/javascript/index.html
 https://parkhyeonshin.github.io/Coding/javascript/javascript01.html   
 https://parkhyeonshin.github.io/Coding/javascript/javascript02.html   
 
+### 퀴즈 이펙트
+https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect01.html   
+https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect02.html   
+
+
 ### HTML 메인 페이지
 https://parkhyeonshin.github.io/Coding/html/index.html   
 https://parkhyeonshin.github.io/Coding/html/alphabet.html   
+
