@@ -60,81 +60,65 @@
             <div class="t_desc2">
                 오늘은 자바 스크립트를 이용해서 퀴즈를 만들어 보겠습니다.
                 스크립트를 이용해 문제를 입력 후, 정답확인을 눌렀을 때 
-                <br>1. 정답 확인하기 버튼을 숨기고 정답을 출력하며
-                <br>2. 정답일 경우 "정답입니다"출력, 오답일 경우 "오답입니다"를 출력
+                <br>1. <i>정답 확인하기 버튼을 숨기고 정답을 출력하며</i>
+                <br>2. <i>정답일 경우 "정답입니다"출력, 오답일 경우 "오답입니다"를 출력</i>
                 <br>합니다.
             </div>
-            
-            <hr>
+           
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect02.html" frameborder="0"></iframe>
+            </div>
 
-            <div class="t_dese">1_ 변수에 데이터를 저장시킵니다.
+            <div class="t_link">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/quizEffect02.html" target="_blank">원본 소스 보기</a>
             </div>
+
+            <h3 class="t_tit2">Javascript
+            </h3>
             <div class="t_code">
-<pre><code class="language-js">// 선택자
-// const 변수이름 = document.querySelector("클래스이름1"); 클래스이름1위치에넣는다 ?
-const quizType = document.querySelector(".quiz__type");                     // 퀴즈 종류
-const quizNumber = document.querySelector(".quiz__question .number");       // 퀴즈 번호
-const quizAsk = document.querySelector(".quiz__question .ask");             // 퀴즈 질문
-const quizconfirm = document.querySelector(".quiz__answer .confirm");       // 정답 확인 버튼
-const quizResult = document.querySelector(".quiz__answer .result");         // 정답 결과
-const quizInput = document.querySelector(".quiz__answer .input");           // 사용자 정답
-const quizView = document.querySelector(".quiz__view");                 // 댕댕이
-</code></pre>
-            <div class="t_dese">2_ 문제 정보를 각각 변수에 저장시킵니다.
-                <br> 여기서, answerResult변수는 소·대문자로 변해야하는 변수이므로 let으로 선언해줍니다.
-                <br> 이후 받은 변수값을 출력합니다.
-            </div>
-<pre><code class="language-js">// 문제 정보        //각 변수에 문제 정보를 저장합니다.
+<pre><code class="language-js">// 선택자            // querySelector를 이용해 각 class이름에 연결시킴
+const quizType = document.querySelector(".quiz__type");                                  // 퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");           // 퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");                         // 퀴즈 질문
+const quizconfirm = document.querySelector(".quiz__answer .confirm");               // 정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");                   // 정답 결과
+const quizInput = document.querySelector(".quiz__answer .input");                   // 사용자 정답
+const quizView = document.querySelector(".quiz__view");                                  // 강아지
+
+// 문제 정보        //각 변수에 문제 정보를 저장합니다.
 const answerType = "웹디자인기능사";       
 const answerNum = "2";
 const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어내는 기업이미지통합 전략은 무엇인가요?";
 let answerResult = "CIP";       //소·대문자로 인해 변해야하는 변수이므로 'let'으로 선언합니다.
-
 
 // 문제 출력
 quizType.innerText = answerType;                //"웹디자인기능사"를 quizType에 텍스트형식으로 입력합니다.
 quizNumber.innerText = answerNum + ". ";
 quizAsk.innerText = answerAsk;
 quizResult.innerText = "정답은 [ " + answerResult + " ] 입니다.";
-</code></pre>
-<pre><code class="language-js">
+
 // 정답 숨기기
 quizResult.style.display = "none";
 
 // 정답 확인
-quizconfirm.addEventListener("click", () => {
-    quizInput.style.display = "none";
-    quizResult.style.display = "block";
-    quizconfirm.style.display = "none";
+quizconfirm.addEventListener("click", () => {           //화살표함수 활용
+    quizInput.style.display = "none";                        //정답입력칸 숨김
+    quizResult.style.display = "block";                      //숨겨져 있던 정답 표시
+    quizconfirm.style.display = "none";                     //정답확인칸 숨김
 
-    // 사용자 정답 가져옴   // tolowercase() -> 소문자 변환 // trim->여백제거
-    const userWord = quizInput.value.toLowerCase().trim();
-    answerResult = answerResult.toLowerCase().trim();
+    // 사용자가 입력한 정답 가져옴   // tolowercase() -> 소문자 변환 // trim->여백제거
+    const userWord = quizInput.value.toLowerCase().trim();      //입력한 정답을 소문자 변환 + 공백제거 후 userWord라는 변수로 가져옴
+    answerResult = answerResult.toLowerCase().trim();            //정답을 소문자변환 + 공백제거 함
 
-    // console.log(userWord);
-    // console.log(answerResult);
-
-    // 사용자 정답 vs 문제 정답 
-    if (userWord == answerResult) {
-        // 정답 
-        // alert("정답입니다");
-        quizView.classList.add("like");
+    if (userWord == answerResult) {                     // 사용자 정답 vs 문제 정답 비교
+        quizView.classList.add("like");                    // 정답일 경우 .quiz__view에 like라는 클래스 이름 추가
     } else {
-        // 오답 
-        // alert("오답입니다");
-        quizView.classList.add("dislike");
+        quizView.classList.add("dislike");                // 오답일 경우 .quiz__view에 dislike라는 클래스 이름 추가
     }
 });
 </code></pre>
             </div>
             
-            <div class="t_iframe">
-                <iframe src="https://codepen.io/parkhyeonshin/embed/YzaaEyb?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/YzaaEyb">
-                    quiz01</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
-                    on <a href="https://codepen.io">CodePen</a>.
-                </iframe>
-            </div>
         </div>
     </main> <!-- //main end -->
     <footer id="footer">

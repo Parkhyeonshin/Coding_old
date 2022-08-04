@@ -208,6 +208,20 @@ body{
     height: 100%;
 }
 
+.document .t_link a {
+    display: block;
+    width: 200px;
+    background: #f5f5f5;
+    margin: 40px auto;
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
+    transition: all 0.3s;
+}
+.document .t_link a:hover {
+    background: #d6d6d6;
+}
+
 /* 모바일화면 제어 용 미디어 쿼리 */
 @media (max-width: 800px){
     body{
