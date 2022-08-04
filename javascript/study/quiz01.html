@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : Quiz</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect01.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect01.html">퀴즈 효과</a></li>
+                <li><a href="../effect/textEffect01.html">텍스트 효과</a></li>
+                <li><a href="../effect/mouseEffect01.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect01.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect01.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect01.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="#.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="quiz01.html">퀴즈 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">퀴즈 만들기</h2>
+            <div class="t_desc2">
+                오늘은 자바 스크립트를 이용해서 퀴즈를 만들어 보겠습니다.
+                스크립트를 이용해 문제를 입력 후, 정답확인을 눌렀을 때 
+                <br>1. 정답 확인하기 버튼을 숨기고 정답을 출력하며
+                <br>2. 정답일 경우 "정답입니다"출력, 오답일 경우 "오답입니다"를 출력
+                <br>합니다.
+            </div>
+            
+            <hr>
+
+            <div class="t_dese">1_ 변수에 데이터를 저장시킵니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+// const 변수이름 = document.querySelector("클래스이름1"); 클래스이름1위치에넣는다 ?
+const quizType = document.querySelector(".quiz__type");                     // 퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");       // 퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");             // 퀴즈 질문
+const quizconfirm = document.querySelector(".quiz__answer .confirm");       // 정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         // 정답 결과
+const quizInput = document.querySelector(".quiz__answer .input");           // 사용자 정답
+const quizView = document.querySelector(".quiz__view");                 // 댕댕이
+</code></pre>
+            <div class="t_dese">2_ 문제 정보를 각각 변수에 저장시킵니다.
+                <br> 여기서, answerResult변수는 소·대문자로 변해야하는 변수이므로 let으로 선언해줍니다.
+                <br> 이후 받은 변수값을 출력합니다.
+            </div>
+<pre><code class="language-js">// 문제 정보        //각 변수에 문제 정보를 저장합니다.
+const answerType = "웹디자인기능사";       
+const answerNum = "2";
+const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어내는 기업이미지통합 전략은 무엇인가요?";
+let answerResult = "CIP";       //소·대문자로 인해 변해야하는 변수이므로 'let'으로 선언합니다.
+
+
+// 문제 출력
+quizType.innerText = answerType;                //"웹디자인기능사"를 quizType에 텍스트형식으로 입력합니다.
+quizNumber.innerText = answerNum + ". ";
+quizAsk.innerText = answerAsk;
+quizResult.innerText = "정답은 [ " + answerResult + " ] 입니다.";
+</code></pre>
+<pre><code class="language-js">
+// 정답 숨기기
+quizResult.style.display = "none";
+
+// 정답 확인
+quizconfirm.addEventListener("click", () => {
+    quizInput.style.display = "none";
+    quizResult.style.display = "block";
+    quizconfirm.style.display = "none";
+
+    // 사용자 정답 가져옴   // tolowercase() -> 소문자 변환 // trim->여백제거
+    const userWord = quizInput.value.toLowerCase().trim();
+    answerResult = answerResult.toLowerCase().trim();
+
+    // console.log(userWord);
+    // console.log(answerResult);
+
+    // 사용자 정답 vs 문제 정답 
+    if (userWord == answerResult) {
+        // 정답 
+        // alert("정답입니다");
+        quizView.classList.add("like");
+    } else {
+        // 오답 
+        // alert("오답입니다");
+        quizView.classList.add("dislike");
+    }
+});
+</code></pre>
+            </div>
+            
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/YzaaEyb?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/YzaaEyb">
+                    quiz01</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
