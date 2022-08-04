@@ -119,7 +119,7 @@ body{
 }
 .document i::before {
     content: '';
-    background-color: #fce65c62;
+    background-color: #f8e25333;
     width: 100%;
     height: 10px;
     position: absolute;
