@@ -157,7 +157,7 @@ body {
 }
 .document i::before {
     content: '';
-    background-color: #0242f142;
+    background-color: #00db7123;
     width: 100%;
     height: 10px;
     position: absolute;
