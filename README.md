@@ -15,6 +15,7 @@ https://parkhyeonshin.github.io/Coding/javascript/javascript02.html
 https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect01.html   
 https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect02.html   
 https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect03.html   
+https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect04.html   
 
 
 ### HTML 메인 페이지
