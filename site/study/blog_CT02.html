@@ -10,82 +10,7 @@
     <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
 
 </head>
-    <style>
-        /* fonts */
-        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
-
-        .nexon {
-            font-family: "NexonLv1Gothic";
-            font-weight: 400;
-        }
-
-        /* 리셋 */
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        a{
-            text-decoration: none;
-            color: #000;
-        }
-        img {
-            width: 100%;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: normal;
-        }
-
-        /* common */
-        .container {
-            width: 1160px;
-            padding: 0 20px;
-            margin: 0 auto;
-        }
-        .section {
-            padding: 120px 0;
-        }
-        .section > h2 {
-            font-size: 50px;
-            line-height: 1;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .section > p {
-            font-size: 22px;
-            font-weight: 300;
-            color: #666;
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        /* cardType */
-        .card__inner {
-            display: flex;
-            justify-content: space-between;
-        }
-        .card {
-            width: 32%;
-            background: #f5f5f5;
-        }
-        .card__body { 
-            padding: 24px;
-        }
-        .card__body .tit{
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .card__body .desc{
-            font-size: 18px;
-            line-height: 1.4;
-            color: #666;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-        .card__body .btn{}
-        .btnflex{
-            display: flex;
-        }
-    </style>
+    
 <body>
     <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
         <h1><a href="../index.html">사이트 만들기</a></h1>
@@ -101,7 +26,7 @@
             <h2 class="t_tit">사이트 만들기 _ 카드 유형02</h2>
             <p class="t_desc2">
                 사이트 만들기 두번째 시간입니다. 오늘은 카드유형 중 두번째 유형입니다. 
-                <br> 4개의 카드가 한줄에 구성된 총 두줄의 카드유형이네요! flex를 활용해 만들어 볼게요.
+                <br> 4개의 카드가 한줄에 구성된 총 두줄의 카드유형이네요! 웹 표준을 준수해서 사이트를 만들어 봅시다.
             </p>
 
             <hr>
@@ -120,18 +45,20 @@
             </figure>
             <div class="t_desc">
                 보통 wrap의 width 값을 1200px으로 부여했지만, 이번 사이트-카드유형은 양쪽에 살짝식 여백이 있으므로 1160px로 작업합니다.
-                레이아웃 배치 속성은 <i>'display:flex'</i>를 사용하여 작업하겠습니다.
+                카드유형의 두줄을 차례때로 배치하기 위해 배치 속성은 <i>'display:flex'</i>를 사용하여 작업하겠습니다.
+                 저번 시간과 다르게 더알아보기가 텍스트가 사라지고 이미지로만 구성되어있기
+                때문에 aria-hidden은 넣지 않았습니다.
             </div>
             <div class="t_desc2">
-                flex-wrap을 이용해서 h2와 btn을 나란히 배치할 수 있게 변경한 뒤 
-                <i>justify-content: space-between;</i>를 사용해서 양쪽으로 균등하게 분할시켜 h2의 내용이 길어지더라도 변함없이 양쪽으로 배치되게 해줍니다.
+                flex-wrap을 이용해서 tit와 btn을 나란히 배치할 수 있게 변경한 뒤 
+                <i>justify-content: space-between;</i>를 사용해서 양쪽으로 균등하게 분할시켜 tit의 내용이 길어지더라도 변함없이 양쪽으로 배치되게 해줍니다.
             </div>
             <h3 class="t_tit2">CSS 속성</h3>
             <div class="t_code">
 <pre><code class="language-css">/* fonts */
 @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
-.nexon {
+.gmarket {
     font-family: "GmarketSans";
     font-weight: 400;
 }
@@ -209,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
             </div>
             <h3 class="t_tit2">HTML 속성</h3>
             <div class="t_code">
-<pre><code class="language-html">&lt;section id="cardType" class="card__wrap nexon section"&gt;
+<pre><code class="language-html">&lt;section id="cardType" class="card__wrap gmarket section"&gt;
     &lt;h2&gt;스타벅스 탐방&lt;/h2&gt;
     &lt;p&gt;
     바쁘다 바빠!현대 사회! 야속하다 야속해! 자본주의 사회!!를 살아가는 우리
@@ -371,6 +298,10 @@ h1, h2, h3, h4, h5, h6 {
     &lt;/div&gt;
 &lt;/section&gt;
 </code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/cardType/cardType02.html" frameborder="0"></iframe>
             </div>
         </div>
     </div>

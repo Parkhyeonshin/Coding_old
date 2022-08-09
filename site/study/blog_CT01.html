@@ -10,82 +10,7 @@
     <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
 
 </head>
-    <style>
-        /* fonts */
-        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
 
-        .nexon {
-            font-family: "NexonLv1Gothic";
-            font-weight: 400;
-        }
-
-        /* 리셋 */
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        a{
-            text-decoration: none;
-            color: #000;
-        }
-        img {
-            width: 100%;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: normal;
-        }
-
-        /* common */
-        .container {
-            width: 1160px;
-            padding: 0 20px;
-            margin: 0 auto;
-        }
-        .section {
-            padding: 120px 0;
-        }
-        .section > h2 {
-            font-size: 50px;
-            line-height: 1;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .section > p {
-            font-size: 22px;
-            font-weight: 300;
-            color: #666;
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        /* cardType */
-        .card__inner {
-            display: flex;
-            justify-content: space-between;
-        }
-        .card {
-            width: 32%;
-            background: #f5f5f5;
-        }
-        .card__body { 
-            padding: 24px;
-        }
-        .card__body .tit{
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .card__body .desc{
-            font-size: 18px;
-            line-height: 1.4;
-            color: #666;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-        .card__body .btn{}
-        .btnflex{
-            display: flex;
-        }
-    </style>
 <body>
     <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
         <h1><a href="../index.html">사이트 만들기</a></h1>
@@ -101,7 +26,7 @@
             <h2 class="t_tit">사이트 만들기 _ 카드 유형01</h2>
             <p class="t_desc2">
                 사이트 만들기 첫번째 시간입니다. 사이의 구성 유형은 메뉴 유형, 배너 유형, 이미지 유형 기타 등등 많은 유형이 있습니다. 그 중 <i>카드 유형</i>에 대해 공부해보겠습니다. 
-                <br>카드 유형 중 기본이 되는 유형입니다. 아래 피그마를 참조하여 똑같이 만들어 봅시다.
+                <br>카드 유형 중 기본이 되는 유형입니다. 아래 피그마를 참조하여 똑같이 만들고 웹표준 기준도 준수해봅시다.
             </p>
 
             <hr>
@@ -121,7 +46,7 @@
             </figure>
             <div class="t_desc">
                 보통 wrap의 width 값을 1200px으로 부여했지만, 이번 사이트-카드유형은 양쪽에 살짝식 여백이 있으므로 1160px로 작업합니다.
-                레이아웃 배치 속성은 <i>'display:flex'</i>를 사용하여 작업하겠습니다.
+                레이아웃 배치 속성은 <i>'display:flex'</i>를 사용하여 작업하겠습니다. 그리고 웹표준을 준수하기 위해  <i>aria-hidden="true"</i>을 사용하였습니다.
             </div>
             <div class="t_desc2">
                 새로운 CSS선택자 속성을 사용해보겠습니다. 
@@ -272,9 +197,12 @@ h1, h2, h3, h4, h5, h6 {
 &lt;/section&gt;
 </code></pre>
             </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/cardType/cardType01.html" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
-    </section>
         <script src="../../javascript/assets/js/highlight.min.js"></script>
         <script>
             hljs.highlightAll();
