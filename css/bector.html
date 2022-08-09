@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 연산자</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">CSS</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="#.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="#.html">알파벳</a></li>
+                <li><a href="#.html">벡터/비트맵 방식</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">  <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">벡터와 비트맵 방식</h2>
+            <p class="t_desc2">
+                그래픽 도구에는 페인팅을 위한 프로그램과 드로잉을 위한 프로그램으로 나눌 수 있는데, 2차원에서 이미지를 구성하는 방식은 비트맵이미지와 벡터이미지로 나눌 수 있습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">벡터 </h3>
+            <p class="t_desc">
+                점과 점을 연결함으로써 수학적 함수 관계에 의해 이미지를 표현해서 선, 면을 만들어 냅니다. 이런 방식으로 만들어진 선이
+                두께값과 색상 값, 곡률값을 갖거나 면이 색상 값을 가지면서 그래픽을 만들게 되는 것입니다.
+                <br> 벡터는 좌표계(x,y)로 구성되기 때문에 비트맵과 달리 이미지크기 조절 혹은 변형으로 인해 해상도가 깨지지 않습니다.
+                아무리 <i>크기를 키워도 깨짐현상이 나타나지 않죠</i>.
+                <br>그렇기 때문에 크기조절이 자유로워야 하는 로고나 서체, 캐릭터 등을 제작할 때에 사용합니다.
+                또 픽셀로 구현되는 비트맵보다 용량이 적기 때문에 가볍습니다.
+                <br>대표적인 프로그램으로는 <i>일러스트레이터</i>, 코렐드로우, 폰트랩 등이 있습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">비트맵 </h3>
+            <p class="t_desc">
+                비트맵은 '비트의 지도(map of bits)'라는 뜻으로, 각 픽셀에 저장된 비트 정보가 집합된 것입니다. 
+                예를 들어 600x500 사이즈의 이미지가 있다면 600x500 = 300,000개의 픽셀이 한 픽셀마다 다른 색상 정보 값을 가지고 있으므로
+                각기 다른 픽셀이 조합되었을 때 하나의 이미지가 되는 것입니다.
+                벡터와 다르게 픽셀의 점 하나하나가 이미지를 이루는 요소라서 벡터보다 정교한 이미지 표현이 가능합니다.
+                그래서 펙셀의 수가 많아질수록 <i>화질은 뛰어나지만</i> 용량이 커지게 되고 이미지를 확대하거나 축소하면 픽셀의 수가 변하게 되어서 깨짐 현상과 품질 저하가 발생합니다.
+                <br>대표적인 프로그램으로 <i>포토샵</i>, 페인터 등이 있습니다.
+            </p>
+
+            <hr>
+            <br>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>장점</th>
+                        <th>단점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>벡터</td>
+                        <td>자유롭게 확대하거나 축소해도 해상도에 영향을 받지 않음. 용량이 작다 </td>
+                        <td>사진이나 이미지처럼 정교한 그래픽 표현에는 한계가 많다.</td>
+                    </tr>
+                    <tr>
+                        <td>비트맵</td>
+                        <td>많은 픽셀로 정교하고 다양한 색상을 가진 이미지를 만들 수 있음.</td>
+                        <td>이미지를 확대하고 축소할때, 깨짐 현상과 이미지 품질이 저하된다.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </main>    <!-- //main end -->
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

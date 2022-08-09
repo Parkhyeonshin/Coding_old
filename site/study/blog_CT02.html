@@ -82,7 +82,9 @@
             font-weight: 300;
         }
         .card__body .btn{}
-
+        .btnflex{
+            display: flex;
+        }
     </style>
 <body>
     <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
@@ -98,8 +100,8 @@
         <div id="main">
             <h2 class="t_tit">사이트 만들기 _ 카드 유형02</h2>
             <p class="t_desc2">
-                사이트 만들기 두번째 시간입니다. 사이의 구성 유형은 메뉴 유형, 배너 유형, 이미지 유형 기타 등등 많은 유형이 있습니다. 그 중 <i>카드 유형</i>에 대해 공부해보겠습니다. 
-                <br>카드 유형 중 기본이 되는 유형입니다. 아래 피그마를 참조하여 똑같이 만들어 봅시다.
+                사이트 만들기 두번째 시간입니다. 오늘은 카드유형 중 두번째 유형입니다. 
+                <br> 4개의 카드가 한줄에 구성된 총 두줄의 카드유형이네요! flex를 활용해 만들어 볼게요.
             </p>
 
             <hr>
@@ -107,27 +109,26 @@
             <h3></h3>
             <div class="t_iframe">
                 <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D184%253A2" allowfullscreen></iframe>            </div>
-            <div class="t_link">
-                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/study/blog_CT02.html" target="_blank">원본 소스 보기</a>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/study/cardType02.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/cardType/cardType02.html" target="_blank">원본 사이트</a>
             </div>
 
             <hr>
             <figure class="card__header">
-                <img src="img/CARD_TYPE01_BLOG.jpg" alt="도베르만의 성격 이미지">
+                <img src="../cardType/img/CARD_TYPE02_BLOG.jpg" alt="레이아웃 이미지">
             </figure>
             <div class="t_desc">
                 보통 wrap의 width 값을 1200px으로 부여했지만, 이번 사이트-카드유형은 양쪽에 살짝식 여백이 있으므로 1160px로 작업합니다.
                 레이아웃 배치 속성은 <i>'display:flex'</i>를 사용하여 작업하겠습니다.
             </div>
             <div class="t_desc2">
-                새로운 CSS선택자 속성을 사용해보겠습니다. 
-                &gt; 를 사용하게 되면 바로 아래 자식요소만 적용시킬 수 있게 됩니다. 
-                <br>.section h2 {}처럼 사용하게 되면 section안의 h2요소들에게 전부 style을 부여하지만,
-                .section > h2 {}를 사용하게 되면 section안에 h2요소들이 많이 있어도 첫번째 h2에만 style을 적용하게 됩니다.
+                flex-wrap을 이용해서 h2와 btn을 나란히 배치할 수 있게 변경한 뒤 
+                <i>justify-content: space-between;</i>를 사용해서 양쪽으로 균등하게 분할시켜 h2의 내용이 길어지더라도 변함없이 양쪽으로 배치되게 해줍니다.
             </div>
             <h3 class="t_tit2">CSS 속성</h3>
             <div class="t_code">
-<pre><code class="language-js">/* fonts */
+<pre><code class="language-css">/* fonts */
 @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
 .nexon {
@@ -208,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
             </div>
             <h3 class="t_tit2">HTML 속성</h3>
             <div class="t_code">
-<pre><code class="language-js">&lt;section id="cardType" class="card__wrap nexon section"&gt;
+<pre><code class="language-html">&lt;section id="cardType" class="card__wrap nexon section"&gt;
     &lt;h2&gt;스타벅스 탐방&lt;/h2&gt;
     &lt;p&gt;
     바쁘다 바빠!현대 사회! 야속하다 야속해! 자본주의 사회!!를 살아가는 우리
