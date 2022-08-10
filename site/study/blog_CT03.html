@@ -70,12 +70,15 @@
             </p>
             <h3 class="t_tit2">CSS 속성</h3>
             <div class="t_code">
-<pre><code class="language-css">@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
 
-.gmark {
-    font-family: 'GmarketSans';
-    font-weight: 500;
+.escore {
+    font-family: 'SCoreDream';
+    font-weight: 300;
+
 }
+
 /* 리셋 */
 *{
     margin: 0;
@@ -93,165 +96,174 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* common */
-.container {
+.gray {                                     //container외부 값
+    background-color: #2254c3;
+    width: 100%;
+    height: 757px;
+    padding-top: 120px;
+}
+.container {                                //상하간격은 카드3개가 전부 동일하므로 container에서 설정
     width: 1160px;
-    padding: 0 20px;
+    padding: 26px 0 25px 0;
     margin: 0 auto;
     min-width: 1160px;
-}
-.section {
-    padding: 120px 0;
-}
-.section > h2 {
-    font-size: 50px;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.section > p {
-    font-size: 22px;
-    font-weight: 300;
-    color: #666;
-    text-align: center;
-    margin-bottom: 70px;
-}
-.gray {
     background-color: #f5f5f5;
 }
 
-/* 이미지 대체 효과(alt태그와 동일한효과) : 이미지스플라이트기법(=ir효과 =ir기법) 이미지가 출력안되는경우 span더보기는 알트태그가 없으므로 안나올때를 대비함*/
-/* 웹표준 준수 목적 */
-.ir {
-    display: block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;           
-}
 
-/* cardType02 */
-.card__inner {
+/* card */
+.card__inner {                              //일렬로 정렬하기 위해 flex사용
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between;         //균등분할
 }
 .card__inner .card{
-    width: 24%;
-    position: relative;
+    width: 333.5px;
+    position: relative;                     //추후 .ment와 .human 위치 지정을 위해 기준점이 됨
 }
-.card__inner .card:first-child {
-    margin-bottom: 50px;
+
+//각 카드끼리 0.5px정도 여백이 다르므로 개별 지정함
+.card1,
+.card2 {
+    width: 333.5px;
+    border-right: 1px solid #eeeeee ;
+    padding: 0 26.5px 0 26px;
+
 }
-.card__inner .card img {
-    margin-bottom: 20px;
+.card3{
+    width: 334.5px;
+    padding-right: 0px;
+    padding: 0 25.5px 0 26px;
+
+}
+.card__inner .card  img{
+    height: 230px;
+    margin-bottom: 19px;
     border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+}
+.card__inner .card .ment p{
+    font-size: 14px;
+    color: #7b7b7b;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 100.8px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    position: absolute;                                         //.card에 잡힌 기준점을 기준으로 배치함
+    right: 0px;
+    top: 10px;
+    display: inline-block;
+    margin-right: 36.2px;
 }
 .card__inner .card .tit {
-    font-size: 28px;
+    font-size: 20px;
     margin-bottom: 10px;
-    overflow: hidden;
+    overflow: hidden;                                         //텍스트 한줄 이상 출력시 …로 잘림효과
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-right: 20px;
 }
 .card__inner .card .desc {
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
-    font-weight: 300;
-    line-height: 1.4;  
+    line-height: 1.4;
+    margin-bottom: 30px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis;                                 // 세줄 이상의 텍스트는 … 처리
     display: -webkit-box;
     -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
 }
-.card__inner .card .more {
-    width: 24px;
-    height: 24px;
-    background-image: url(img/card_bg02_arrow.svg);
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 227px;
-    border-radius: 5px;
+.card__inner .card .desc2 {
+    font-size: 16px;
+    text-align: right;
+    color: #dd2a2a;
+    width: calc( 100% - 49.5px);                            //우측정렬로 인해 width값을 구하기 어려우므로 card의 100%여백에서 오른쪽 여백만큼 제함
 }
-.card__inner .card .more span {
-    display: none;
+.card__inner .card .desc3 {
+    font-size: 16px;
+    text-align: right;
+    color: #666666;
+    width: calc( 100% - 49.5px);
 }
+.card__inner .card .human{
+    width: 37.6px;
+    height: 40px;
+    border-radius: 50%;                                     // raidus이용 --> 원 형태
+    position: absolute;                                     //.card로 잡힌 기준점을 이용, 배치함
+    right: 26px;
+    bottom: -18px;
+    box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);
+    }
 </code></pre>
             </div>
             <h3 class="t_tit2">HTML 속성</h3>
             <div class="t_code">
-<pre><code class="language-html">&lt;section id="cardType" class="card__wrap gmark section gray"&gt;
-    &lt;h2&gt;스타벅스 탐방&lt;/h2&gt;
-    &lt;p&gt;
-        바쁘다 바빠!현대 사회! 야속하다 야속해! 자본주의 사회!!를 살아가는 우리
-        &lt;br&gt;전세계인이 사랑하는 스타벅스로 여행을 떠나요.룰루랄라랄🎶
-    &lt;/p&gt;
+<pre><code class="language-html">&lt;section id="cardType" class="card__wrap escore section gray"&gt;
     &lt;div class="card__inner container"&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_01.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요! 스타벅스 자허블&lt;/h3&gt;
+        &lt;article class="card card1"&gt;
+            &lt;img src="img/card_bg03_01.jpg" alt="댕댕"&gt;
+            &lt;div class="ment"&gt;
+                &lt;p&gt;Dog&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;h3 class="tit"&gt;
+                조심하세요
+                &lt;br&gt;너무 귀여워요!!
+            &lt;/h3&gt;
             &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
+                우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤
             &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            
+            &lt;p class="desc2"&gt;
+                Jeeny
+            &lt;/p&gt;
+            &lt;p class="desc3"&gt;
+                7 Resources
+            &lt;/p&gt;
+            &lt;img class= "human" src="img/card_bg03_01_1.jpg" alt="사람1"&gt;
         &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_02.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
+        &lt;article class="card card2"&gt;
+            &lt;img src="img/card_bg03_02.jpg" alt="댕댕"&gt;
+            &lt;div class="ment"&gt;
+                &lt;p&gt;Dog&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;h3 class="tit"&gt;
+                조심하세요
+                &lt;br&gt;너무 귀여워요!!
+            &lt;/h3&gt;
             &lt;p class="desc"&gt;
-                바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
+                우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤
             &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            
+            &lt;p class="desc2"&gt;
+                Tom Boy
+            &lt;/p&gt;
+            &lt;p class="desc3"&gt;
+                14 Resources
+            &lt;/p&gt;
+            &lt;img class= "human" src="img/card_bg03_02_1.jpg" alt="사람1"&gt;
         &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_03.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
+        &lt;article class="card card3"&gt;
+            &lt;img src="img/card_bg03_03.jpg" alt="댕댕"&gt;
+            &lt;div class="ment"&gt;
+                &lt;p&gt;Dog&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;h3 class="tit"&gt;
+                조심하세요
+                &lt;br&gt;너무 귀여워요!!
+            &lt;/h3&gt;
             &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
+                우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤
             &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_04.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
-            &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
+            &lt;p class="desc2"&gt;
+                Lisa
             &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_05.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
-            &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
+            &lt;p class="desc3"&gt;
+                24 Resources  
             &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_06.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
-            &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
-            &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_07.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
-            &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
-            &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
-        &lt;/article&gt;
-        &lt;article class="card"&gt;
-            &lt;img src="img/card_bg02_08.jpg" alt="커피사진"&gt;
-            &lt;h3 class="tit"&gt;좋아요!&lt;/h3&gt;
-            &lt;p class="desc"&gt;
-            바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶다 눕고싶다
-            &lt;/p&gt;
-            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;img class= "human" src="img/card_bg03_03_1.jpg" alt="사람1"&gt;
         &lt;/article&gt;
     &lt;/div&gt;
 &lt;/section&gt;
