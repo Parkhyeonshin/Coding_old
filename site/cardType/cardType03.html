@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카드 유형02</title>
+    <title>카드 유형03</title>
     <style>
         /* fonts */
-        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
 
-        .nexon {
-            font-family: "GmarketSans";
-            font-weight: 400;
+        .escore {
+            font-family: 'SCoreDream';
+            font-weight: 300;
+
         }
 
         /* 리셋 */
@@ -31,220 +32,173 @@
         }
 
         /* common */
+        .gray {
+            background-color: #2254c3;
+            width: 100%;
+            height: 757px;
+            padding-top: 120px;
+        }
         .container {
             width: 1160px;
-            padding: 0 20px;
+            padding: 26px 0 25px 0;
             margin: 0 auto;
             min-width: 1160px;
-            display: flex;
-            flex-wrap: wrap;
+            background-color: #f5f5f5;
         }
-        .section {
-            padding: 120px 0;
-        }
-        .section > h2 {
-            font-size: 50px;
-            line-height: 1;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .section > p {
-            font-size: 22px;
-            font-weight: 300;
-            color: #666;
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        /* cardType */
+        
+        
+        /* card */
         .card__inner {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
-        .card {
-            width: 275px;
-            margin-bottom: 50px;
+        .card__inner .card{
+            width: 333.5px;
+            position: relative;
+
         }
-        .card__body { 
-            margin-top: 20px;
+        .card1,
+        .card2 {
+            width: 333.5px;
+            border-right: 1px solid #eeeeee ;
+            padding: 0 26.5px 0 26px;
+
         }
-        .like {
-            display: flex;
-            justify-content: space-between;
+        .card3{
+            width: 334.5px;
+            padding-right: 0px;
+            padding: 0 25.5px 0 26px;
+
+        }
+        .card__inner .card  img{
+            height: 230px;
+            margin-bottom: 19px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+        }
+        .card__inner .card .ment p{
+            font-size: 14px;
+            color: #7b7b7b;
+            background-color: #fff;
+            border-radius: 50px;
+            width: 100.8px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            display: inline-block;
+            margin-right: 36.2px;
+        }
+        .card__inner .card .tit {
+            font-size: 20px;
             margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
-        .card__body .tit{
-            font-size: 24px;
-        }
-        .card__body .desc{
-            font-size: 18px;
-            line-height: 1.4;
+        .card__inner .card .desc {
+            font-size: 16px;
             color: #666;
-            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
         }
-        .card__body .btn{}
+        .card__inner .card .desc2 {
+            font-size: 16px;
+            text-align: right;
+            color: #dd2a2a;
+            width: calc( 100% - 49.5px);
+        }
+        .card__inner .card .desc3 {
+            font-size: 16px;
+            text-align: right;
+            color: #666666;
+            width: calc( 100% - 49.5px);
+        }
+        .card__inner .card .human{
+            width: 37.6px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            right: 26px;
+            bottom: -18px;
+            box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
     
 <body>
-    <section id="cardType" class="card__wrap nexon section">
-        <h2>스타벅스 탐방</h2>
-        <p>
-        바쁘다 바빠!현대 사회! 야속하다 야속해! 자본주의 사회!!를 살아가는 우리
-        <br>전세계인이 사랑하는 스타벅스로 여행을 떠나요.룰루랄라랄🎶
-        </p>
+    <section id="cardType" class="card__wrap escore section gray">
         <div class="card__inner container">
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg01.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
+            <article class="card card1">
+                <img src="img/card_bg03_01.jpg" alt="댕댕">
+                <div class="ment">
+                    <p>Dog</p>
                 </div>
+                <h3 class="tit">
+                    조심하세요
+                    <br>너무 귀여워요!!
+                </h3>
+                <p class="desc">
+                    우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤
+                </p>
+                
+                <p class="desc2">
+                    Jeeny
+                </p>
+                <p class="desc3">
+                    7 Resources
+                </p>
+                <img class= "human" src="img/card_bg03_01_1.jpg" alt="사람1">
             </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg02.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
+            <article class="card card2">
+                <img src="img/card_bg03_02.jpg" alt="댕댕">
+                <div class="ment">
+                    <p>Dog</p>
                 </div>
+
+                <h3 class="tit">
+                    조심하세요
+                    <br>너무 귀여워요!!
+                </h3>
+                <p class="desc">
+                    우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤
+                </p>
+                
+                <p class="desc2">
+                    Tom Boy
+                </p>
+                <p class="desc3">
+                    14 Resources
+                </p>
+                <img class= "human" src="img/card_bg03_02_1.jpg" alt="사람1">
             </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg03.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
+            <article class="card card3">
+                <img src="img/card_bg03_03.jpg" alt="댕댕">
+                <div class="ment">
+                    <p>Dog</p>
                 </div>
-            </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg04.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
-                </div>
-            </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg05.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
-                </div>
-            </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg06.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
-                </div>
-            </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg07.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
-                </div>
-            </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card02_bg08.jpg" alt="커피 이미지">
-                </figure>
-                <div class="card__body">
-                    <div class="like">
-                    <h3 class="tit">좋아요!</h3>
-                        <a class="btn" href="/">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" rx="5" fill="#480202"/>
-                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="desc">
-                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
-                    </p>
-                </div>
+                <h3 class="tit">
+                    조심하세요
+                    <br>너무 귀여워요!!
+                </h3>
+                <p class="desc">
+                    우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤
+                </p>
+                <p class="desc2">
+                    Lisa
+                </p>
+                <p class="desc3">
+                    24 Resources
+                </p>
+                <img class= "human" src="img/card_bg03_03_1.jpg" alt="사람1">
             </article>
         </div>
     </section>
