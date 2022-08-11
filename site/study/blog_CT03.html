@@ -47,20 +47,29 @@
             </figure>
             <div class="t_desc">
                 시멘틱 태그를 사용한 이후엔 h태그가 필수적으로 와야 하는데요. 그래서 html소스의 &lt;section&gt;이후에 h태그를 사용했습니다. 하지만 저희는 이 h태그를 보여주면 안되겠죠?
-                그래서 이번엔 class="<i>blind</i>"를 사용해보겠습니다.
+                그래서 이번엔 이 h태그에 class="blind"를 부여해서 <i>blind</i>라는 css속성을 사용해보겠습니다.
+                <br>그리고, footer부분의 배치가 애매하죠? 저도 어려워요...😥 오른쪽부터 배치될 수 있게 하기 위해 새로운 justify-content 속성인 flex-end를 사용해봐요.
+                <i>justify-content: flex-end;를 사용하면 flex컨테이너의 뒤쪽부터 정렬</i>이 됩니다.
             </div>
-            <h3 class="t_tit2">IR 효과</h3>
+            <h3 class="t_tit2">CSS속성 : blind</h3>
             <p class="t_desc2">
-                IR 기법은 이미지 대체 텍스트를 제공하기 위한 CSS 기법으로 다양한 CSS기법을 사용하여 이미지 대체 텍스트를 제공할 수 있습니다.
+                이름 그대로 시각적으로 보이지 않게 하기 위한 css속성을 부여했습니다. 속성 값은 아래를 참고하세요!
             </p>
-            <h4 class="t_tit3">- Phark Method</h4>
-            <p class="t_desc">
-                의미 있는 이미지의 대체 텍스트를 제공하는 경우 : 이미지로 대체할 엘리먼트에 배경이미지를 설정하고 글자는 text-indent를 이용하여 화면 바깥으로 빼내어서 보이지 않게 하는 방법입니다.
+            <p class="t_box">
+                .blind {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;position:absolute;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;clip:rect(0 0 0 0);                 
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;width:1px;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;height:1px;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;margin:-1px;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;overflow:hidden;
+                <br>}
+                <br><br>// 포토샵의 클리핑 마스크처럼 요소의 특정 부분만 나오도록 설정하는 속성입니다. 위치값 네군데가 0이므로 표현이 되지 않겠네요.마찬가지로 width, height을 1로부여하고
+                margin을 -1로 부여해서 overflow:hidden으로 넘치는 부분은 표현하지 않게하여 결과적으로는 <i>보여지지 않게 됩니다.</i>
             </p>
-            <h4 class="t_tit3">- PWA IR</h4>
-            <p class="t_desc">
-                대체 텍스트로 이미지를 off해도 대체 텍스트를 보여주고자 할때 : 이미지로 대체할 엘리먼트에 배경이미지 설정 후 글자는 span으로 감싸고 z-index: -1;을 이용하여 화면에 안보이게 설정
-            </p>
+            <figure class="card__header">
+                <img src="../cardType/img/card_type03_blog2.jpg" alt="레이아웃2 이미지">
+            </figure>
             <h3 class="t_tit2">CSS 속성</h3>
             <div class="t_code">
 <pre><code class="language-css">/* fonts */
