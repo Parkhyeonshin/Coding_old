@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트</title>
+
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+
+    <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/NexonMabinogi/MabinogiClassic.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../javascript01.html">Quiz </a><em>객관식(여러문제) 유형</em></h1>
+        <nav>
+            <ul>
+                <li><a href="quizEffect01.html">1</a></li>
+                <li><a href="quizEffect02.html">2</a></li>
+                <li><a href="quizEffect03.html">3</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li class="active"><a href="quizEffect05.html">5</a></li>
+                <li><a href="quizEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- /header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            
+        </div>
+    </main>
+    <!-- /main -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- /footer -->
+
+    <script>
+        // const num = [100, 200, 300, 400, 500];
+
+        // num.forEach((el) =>{
+        //     console.log(el)     //100,200,300,400,500
+        //     document.querySelector(".quiz__wrap").innerHTML += el;
+        // });
+        
+        // 문제 정보
+        const quizInfo = [
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "1",
+                answerAsk: "굿 디자인(good design)을 위한 디자인의 조건에 포함되지 않는 것은?",
+                answerChoice: {
+                    1: "합목적성",
+                    2: "독창성",
+                    3: "심미성",
+                    4: "모방성",
+                },
+                answerResult: "4",
+                answerEx : "디자인의 조건은 합목적성, 경제성, 심미성, 독창성, 질서성이 있습니다."
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "2",
+                answerAsk: "다음이 설명하는 것은? - 주어진 길이를 가장 이상적으로 나누는 비를 말하며 근사값이 약 1.619인 무리수",
+                answerChoice: {
+                    1: "비례",
+                    2: "황금비율",
+                    3: "삼각분할",
+                    4: "프로포션",
+                },
+                answerResult: "2",
+                answerEx : "황금비율(길이를 둘로 나누었을때 같은 비율)"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "3",
+                answerAsk: "색입체는 색의 3속성에 따라 합리적으로 배치한 3차원 색상환으로 (㉠)은/는 둘레의 원으로, (㉡)는 중심선으로부터 방사선으로, (㉢)은/는 중심축으로 배치한 것이다.",
+                answerChoice: {
+                    1: "㉠ 색상, ㉡ 채도, ㉢ 명도",
+                    2: "㉠ 색상, ㉡ 명도, ㉢ 채도",
+                    3: "㉠ 채도, ㉡ 명도, ㉢ 색상",
+                    4: "㉠ 명도, ㉡ 채도, ㉢ 색상",
+                },
+                answerResult: "1",
+                answerEx : "색상은 둘레의 원으로, 채도는 중심선으로부터 방사선으로, 명도는 중심축으로 배치한 것이다"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "4",
+                answerAsk: '입체파(Cubism)의 가장 대표적인 화가는?',
+                answerChoice: {
+                    1: "피카소",
+                    2: "쿠르베",
+                    3: "찰스 자보",
+                    4: "도미에",
+                },
+                answerResult: "1",
+                answerEx : "피카소는 대표적인 입체파 화가이다"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "5",
+                answerAsk: "컬러 인쇄를 위해 C, M, Y, K 4색의 네거필름으로 만드는 과정을 무엇이라 하는가?",
+                answerChoice: {
+                    1: "색분해",
+                    2: "색상좌표",
+                    3: "색도도",
+                    4: "색 수정",
+                },
+                answerResult: "1",
+                answerEx : "색상좌표 (=rgb), 색도도(색도 좌표를 그림으로 표시한 것),"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "6",
+                answerAsk: "데 스틸(De Stijl)에 관한 설명으로 옳지 않은 것은?",
+                answerChoice: {
+                    1: "네덜란드를 중심으로 한 신조형 운동으로 요소주의라고도 불리운다.",
+                    2: "도스부르크, 몬드리안, 리트벨트 등이 주요인물이다.",
+                    3: "아르누보의 조형사상에 큰 영향을 주었다.",
+                    4: "현대의 조형 활동은 인공세계를 상징하고 표현하는데 중점을 두어야 한다고 생각하였다.",
+                },
+                answerResult: "3",
+                answerEx : "아르부노 : 1890년 프랑스와 벨기에를 중심으로 일어난 범유럽식 신 장식 미술운동으로 식물을 모티브로한 추상 형식과 화려한 색채가 특징임."
+            },
+        ];
+
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        function updateQuiz(){
+            const exam = [];
+            quizInfo.forEach((question, number) =>{
+                exam.push(`
+                    <div class="quiz">
+                    <span class="quiz__type">${question.answerType}</span>
+                    <h2 class="quiz__question">
+                        <span class="number">${question.answerNum}. </span>
+                        <div class="ask">${question.answerAsk}</div>
+                    </h2>
+                    <div class="quiz__view">
+                        <div class="true">정답🐾</div>
+                        <div class="false">오답 입니다!</div>
+                        <div class="dog">
+                            <div class="head">
+                                <div class="ears"></div>
+                                <div class="face"></div>
+                                <div class="eyes">
+                                    <div class="teardrop"></div>
+                                </div>
+                                <div class="nose"></div>
+                                <div class="mouth">
+                                    <div class="tongue"></div>
+                                </div>
+                                <div class="chin"></div>
+                            </div>
+                            <div class="body">
+                                <div class="tail"></div>
+                                <div class="legs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz__answer">
+                        <div class="quiz__selects">
+                            <label for="select1${number}">
+                                <input type="radio" id="select1${number}" class="select" name="select${number}" value="1" >
+                                <span class="choice">${question.answerChoice[1]}</span>
+                            </label>
+                            <label for="select2${number}">
+                                <input type="radio" id="select2${number}" class="select" name="select${number}" value="2" >
+                                <span class="choice">${question.answerChoice[2]}</span>
+                            </label>
+                            <label for="select3${number}">
+                                <input type="radio" id="select3${number}" class="select" name="select${number}" value="3" >
+                                <span class="choice">${question.answerChoice[3]}</span>
+                            </label>    
+                            <label for="select4${number}">
+                                <input type="radio" id="select4${number}" class="select" name="select${number}" value="4" >
+                                <span class="choice">${question.answerChoice[4]}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                `);
+            });
+
+            exam.push(`
+                <div class="quiz__confirm">
+                    <button class="check">정답 확인하기</button>
+                    <div class="ex"></div>
+                <div>
+            `)  
+
+            quizWrap.innerHTML = exam.join('');
+        }
+        updateQuiz();
+
+        //정답 확인
+        function answerQuiz(){
+            const quizSelects = document.querySelectorAll(".quiz__selects");    //보기
+            const quizView = document.querySelectorAll(".quiz__view");          //강아지
+            //사용자가 체크한 라디오 박스  == 문제 정답
+            quizInfo.forEach((question, number) => {
+                const quizSelectsWrap = quizSelects[number];                    //전체 보기 박스
+                const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
+                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value
+                const quizView = document.querySelectorAll(".quiz__view");
+                console.log(quizSelects)
+                if(userAnswer == question.answerResult){
+                    console.log("정답")
+                    quizView[number].classList.add("like");
+                } else {
+                    console.log("오답")
+                    quizView[number].classList.add("dislike");
+                    const div = document.createElement("div");
+                    quizSelectsWrap.appendChild(div).innerHTML = `<p class="result">${question.answerEx}</p>`;
+                }
+            });
+        }
+        document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+    </script>
+</body>
+
+</html>

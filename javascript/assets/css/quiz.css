@@ -243,17 +243,17 @@ body {
     animation: wobble 0.6s;
 }
 
-.quiz_selects{
+.quiz__selects{
     margin: 5px 0;
 }
-.quiz_selects label{
+.quiz__selects label{
     display: flex;
 }
-.quiz_selects label input {
+.quiz__selects label input {
     position: absolute;
     left: -9999px;
 }
-.quiz_selects label span {
+.quiz__selects label span {
     font-size: 20px;
     line-height: 1.4;
     font-family: "MabinogiClassic";
@@ -261,7 +261,7 @@ body {
     display: flex;
     align-items: center;
 }
-.quiz_selects label span::before{
+.quiz__selects label span::before{
     content: '';
     width: 30px;
     height: 30px;
@@ -273,15 +273,35 @@ body {
     flex-shrink: 0;
     transition: all 0.75s;
 }
-.quiz_selects label input:checked + span {
+.quiz__selects label input:checked + span {
     background-color: #fad69d98;
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
 }
-.quiz_selects label input:checked + span::before {
+.quiz__selects label input:checked + span::before {
     box-shadow: inset 0px 0px 0px 10px #f8b74e;
 } 
+.quiz__confirm {
+    width: 100%;
+    text-align: center;
+}
+.quiz__confirm .check {
+    font-size: 22px;
+    border: 6px ridge #cacaca;
+    padding: 13px 60px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "MabinogiClassic";
+    line-height: 1.4;
+    cursor: pointer;
+    margin: 40px 0;
+    transition: background 0.3s;
+}
+
+.quiz__confirm .check:hover {
+    background-color: #ffb53ed8;
+}
 
 
 @keyframes wobble {
