@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML 기초</title>
-    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+    <title>HTML 블록</title>
+    <!-- <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
+    <!-- <style>
         * {
             margin: 0;
             padding: 0;
@@ -119,34 +122,45 @@
             }
         }
    
-   </style>
+   </style> -->
 </head>
 <body>
-    <header id="header">
-        <h1>HTML</h1>
-        <nav>
-            <ul>
-                <li><a href="basic.html">기초</a></li>
-                <li><a href="#">주제</a></li>
-                <li><a href="alphabet.html">알파벳</a></li>
-            </ul>
-        </nav>
+    <header id = "header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 박현신</span>
     </header>
-    <section id="contents">
-        <nav class="menu">
+    <!-- /header -->
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
             <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
                 <li><a href="basic.html">기본 문서</a></li>
                 <li><a href="markup.html">기본 규칙</a></li>
-                <li><a href="#">W3C validator</a></li>
-                <li><a href="semantic markup.html">시멘틱 마크업</a></li>
-                <li><a href="#.html">블록/인라인 요소</a></li>
+                <li class="active"><a href="block.html">블록/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic markup.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+                <li><a href="parts.html">구조 관련 요소</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
             </ul>
         </nav>
-        <article class="article">
-            <h2>블록/인라인</h2>
-            <h3>01_ 블록 레벨 요소</h3> <!--01-->
-                마크업 할 때 줄이 바뀌는 특성을 가짐.<br>
-<pre class="box">&lt; !DOCTYPE html &gt;
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">블록/인라인</h2>
+                <h3 class="t_tit2">01_ 블록 레벨 요소</h3> <!--01-->
+                <p class="t_desc">
+                    마크업 할 때 줄이 바뀌는 특성을 가짐.
+                </p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
 &lt; html lang="ko" &gt;
 &lt; head &gt;
         &lt;meta charset = "UTF-8"&gt;
@@ -159,10 +173,10 @@
 &lt; /body &gt;
 &lt; /html &gt;
 </pre>
-            <p>&lt;h&gt;요소들은 블록의 성질을 가지고 있어 화면상 줄 바꿈 현상이 일어남.</p>
-            <h3>02_ 인라인 요소(Inline Element)</h3> <!--02-->
-            <p>줄 바꿈 특성이 없어 행이 바뀌지 않고 한 줄로 출력됨.</p>
-<pre class="box">&lt; !DOCTYPE html &gt;
+                <p class="t_desc">&lt;h&gt;요소들은 블록의 성질을 가지고 있어 화면상 줄 바꿈 현상이 일어남.</p>
+                <h3 class="t_tit2">02_ 인라인 요소(Inline Element)</h3> <!--02-->
+                <p class="t_desc">줄 바꿈 특성이 없어 행이 바뀌지 않고 한 줄로 출력됨.</p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
 &lt; html lang="ko" &gt;
 &lt; head &gt; 
         &lt;meta charset = "UTF-8"&gt;
@@ -174,10 +188,12 @@
 &lt; /body &gt;
 &lt; /html &gt;
 </pre>
-            <p>&lt;strong&gt;, &lt;span&gt;요소들은 인라인 성질을 지니고 있어 한 줄로 출력됨.</p>
-            <h3>03_ 블록 레벨 요소와 인라인 요소의 특성</h3> <!--03-->
-                인라인 요소에는 블록 레벨 요소가 자식으로 들어올 수 없음.<br>
-<pre class="box">&lt; !DOCTYPE html &gt;
+            <p class="t_desc">&lt;strong&gt;, &lt;span&gt;요소들은 인라인 성질을 지니고 있어 한 줄로 출력됨.</p>
+            <h3 class="t_tit2">03_ 블록 레벨 요소와 인라인 요소의 특성</h3> <!--03-->
+            <p class="t_desc">
+                인라인 요소에는 블록 레벨 요소가 자식으로 들어올 수 없음.
+            </p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
 &lt; html lang="ko" &gt;
 &lt; head &gt;
         &lt;meta charset = "UTF-8"&gt;
@@ -188,80 +204,90 @@
 &lt; /body &gt;
 &lt; /html &gt;
 </pre>
-            <p>&lt;span&gt;인라인 요소, &lt;h1&gt;블록 레벨요소 <br>
-                즉, 인라인 요소의 자식 요소로 블록 레벨 요소를 마크업 했기 때문에 문법 에러 발생.</p>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>요소 유형</th>
-                        <th>특징</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>블록 레벨 요소</td>
-                        <td>1. 블록 레벨 요소는 줄 바꿈이 일어납니다.<br>
-                            2. 블록 레벨 요소는 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
-                            3. 블록 레벨 요소 중에는 블록 레벨 요소를 자식 요소를 포함 할 수 있는 요소와 포함할 수 없는 요소가 있습니다.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>인라인 요소</td>
-                        <td>1. 인라인 요소는 줄 바꿈이 일어나지 않습니다.<br>
-                            2. 인라인 요소는 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
-                            3. 인라인 요소는 블록 레벨 요소를 자식 요소로 포함할 수 없습니다.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>콘텐츠의 종류와 태그</p>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>콘텐츠 종류</th>
-                        <th>내용</th>
-                        <th>해당 요소</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>메타데이터 콘텐츠<br>(Metadata Content)</td>
-                        <td> &lt;head&gt; 태그 안에 포함되는 요소들로 콘텐츠의 표현, 동작 설정,
-                             문서 관계 설정, 정보전달을 포함하는 요소 의미
-                        </td>
-                        <td>&lt;base&gt;, &lt;link&gt;, &lt;meta&gt;, &lt;noscript&gt;, &lt;script&gt;, &lt;style&gt;, &lt;title&gt; ...</td>
-                    </tr>
-                    <tr>
-                        <td>플로우 콘텐츠<br>(Flow Content)</td>
-                        <td>&lt;body&gt; 태그 안에 포함되는 대부분의 요소들로 내용 흐름에 관한 요소를 의미</td>
-                        <td>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;, &lt;address&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;dl&gt;, &lt;table&gt;, &lt;form&gt; ...</td>
-                    </tr>
-                    <tr>
-                        <td>섹션 콘텐츠<br>(Sectioning Content)</td>
-                        <td>heading과 footer의 범위를 정의하는 요소를 의미</td>
-                        <td>&lt;article&gt;, &lt;aside&gt;, &lt;nav&gt;, &lt;section&gt;</td>
-                    </tr>
-                    <tr>
-                        <td>헤딩 콘텐츠<br>(Heading Content)</td>
-                        <td>섹션의 헤더를 정의하는 요소를 의미</td>
-                        <td>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</td>
-                    </tr><tr>
-                        <td>프레이징 콘텐츠<br>(Phrasing Content)</td>
-                        <td>텍스트를 마크업하는 요소를 의미</td>
-                        <td>&lt;a&gt;, &lt;em&gt;, &lt;strong&gt;, &lt;sub&gt, &lt;sup&gt;, &lt;label&gt;...</td>
-                    </tr><tr>
-                        <td>임베디드 콘텐츠<br>(Embedded Content)</td>
-                        <td>HTML 문서에 다른 리소스를 삽입하는 요소 의미</td>
-                        <td>&lt;img&gt;, &lt;audio&gt;, &lt;video&gt;, &lt;iframe&gt;...</td>
-                    </tr>
-                    <tr>
-                        <td>인터랙티브 콘텐츠<br>(Interactive Content)</td>
-                        <td>사용자의 상호작용 위한 요소</td>
-                        <td>&lt;a&gt;, &lt;button&gt;, &lt;audio&gt;, &lt;video&gt;, &lt;select&gt; ...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </article>
-    </section>
+                <p class="t_desc">&lt;span&gt;인라인 요소, &lt;h1&gt;블록 레벨요소 <br>
+                    즉, 인라인 요소의 자식 요소로 블록 레벨 요소를 마크업 했기 때문에 문법 에러 발생.</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>요소 유형</th>
+                            <th>특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>블록 레벨 요소</td>
+                            <td>1. 블록 레벨 요소는 줄 바꿈이 일어납니다.<br>
+                                2. 블록 레벨 요소는 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
+                                3. 블록 레벨 요소 중에는 블록 레벨 요소를 자식 요소를 포함 할 수 있는 요소와 포함할 수 없는 요소가 있습니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>인라인 요소</td>
+                            <td>1. 인라인 요소는 줄 바꿈이 일어나지 않습니다.<br>
+                                2. 인라인 요소는 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
+                                3. 인라인 요소는 블록 레벨 요소를 자식 요소로 포함할 수 없습니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="t_desc">콘텐츠의 종류와 태그</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>콘텐츠 종류</th>
+                            <th>내용</th>
+                            <th>해당 요소</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>메타데이터 콘텐츠<br>(Metadata Content)</td>
+                            <td> &lt;head&gt; 태그 안에 포함되는 요소들로 콘텐츠의 표현, 동작 설정,
+                                 문서 관계 설정, 정보전달을 포함하는 요소 의미
+                            </td>
+                            <td>&lt;base&gt;, &lt;link&gt;, &lt;meta&gt;, &lt;noscript&gt;, &lt;script&gt;, &lt;style&gt;, &lt;title&gt; ...</td>
+                        </tr>
+                        <tr>
+                            <td>플로우 콘텐츠<br>(Flow Content)</td>
+                            <td>&lt;body&gt; 태그 안에 포함되는 대부분의 요소들로 내용 흐름에 관한 요소를 의미</td>
+                            <td>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;, &lt;address&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;dl&gt;, &lt;table&gt;, &lt;form&gt; ...</td>
+                        </tr>
+                        <tr>
+                            <td>섹션 콘텐츠<br>(Sectioning Content)</td>
+                            <td>heading과 footer의 범위를 정의하는 요소를 의미</td>
+                            <td>&lt;article&gt;, &lt;aside&gt;, &lt;nav&gt;, &lt;section&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>헤딩 콘텐츠<br>(Heading Content)</td>
+                            <td>섹션의 헤더를 정의하는 요소를 의미</td>
+                            <td>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</td>
+                        </tr><tr>
+                            <td>프레이징 콘텐츠<br>(Phrasing Content)</td>
+                            <td>텍스트를 마크업하는 요소를 의미</td>
+                            <td>&lt;a&gt;, &lt;em&gt;, &lt;strong&gt;, &lt;sub&gt, &lt;sup&gt;, &lt;label&gt;...</td>
+                        </tr><tr>
+                            <td>임베디드 콘텐츠<br>(Embedded Content)</td>
+                            <td>HTML 문서에 다른 리소스를 삽입하는 요소 의미</td>
+                            <td>&lt;img&gt;, &lt;audio&gt;, &lt;video&gt;, &lt;iframe&gt;...</td>
+                        </tr>
+                        <tr>
+                            <td>인터랙티브 콘텐츠<br>(Interactive Content)</td>
+                            <td>사용자의 상호작용 위한 요소</td>
+                            <td>&lt;a&gt;, &lt;button&gt;, &lt;audio&gt;, &lt;video&gt;, &lt;select&gt; ...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
 </body>
 </html>

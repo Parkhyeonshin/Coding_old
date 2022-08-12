@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML 기초</title>
+    <title>HTML 시멘틱 태그</title>
     <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
 
-    <style>
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <style>
         * {
             margin: 0;
             padding: 0;
@@ -119,48 +121,58 @@
             }
         }
    
-   </style>
+   </style> -->
 </head>
 <body>
-    <header id="header">
-        <h1>HTML</h1>
-        <nav>
-            <ul>
-                <li><a href="#">기초</a></li>
-                <li><a href="#">주제</a></li>
-                <li><a href="alphabet.html">알파벳</a></li>
-            </ul>
-        </nav>
+    <header id = "header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 박현신</span>
     </header>
-    <section id="contents">
-        <nav class="menu">
+    <!-- /header -->
+    
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
             <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
                 <li><a href="basic.html">기본 문서</a></li>
                 <li><a href="markup.html">기본 규칙</a></li>
-                <li><a href="#">W3C validator</a></li>
-                <li><a href="semantic markup.html">시멘틱 마크업</a></li>
-                <li><a href="block.html">블록/인라인 요소</a></li>
+                <li><a href="block.html">블록/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li class="active"><a href="semantic markup.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+                <li><a href="parts.html">구조 관련 요소</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
             </ul>
         </nav>
-        <article class="article">
-            <h2>시멘틱 마크업 </h2>
-            <p>시멘틱 마크업은 마크업시 의미에 부합하는 태그를 사용하라는 뜻<br>
-                <em>why?</em> 이용자들의 환경이 모두 동일한게 아니라 모두가 똑같게 받아들일 수 있지 않기 때문<br>
-                ex)
-            </p>
-<pre class="box">&lt; !DOCTYPE html &gt;
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">시멘틱 마크업 </h2>
+                <p class="t_desc2">시멘틱 마크업은 마크업시 의미에 부합하는 태그를 사용하라는 뜻<br>
+                    <em>why?</em> 이용자들의 환경이 모두 동일한게 아니라 모두가 똑같게 받아들일 수 있지 않기 때문<br>
+                    ex)
+                </p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
 &lt; html lang="ko" &gt;
 &lt; head &gt;
-         &lt;meta charset = "UTF-8"&gt;
-         &lt;title&gt;시멘틱 마크업&lt;/title&gt;
+            &lt;meta charset = "UTF-8"&gt;
+            &lt;title&gt;시멘틱 마크업&lt;/title&gt;
 &lt; /head &gt;
 &lt; body &gt;
         반응형웹
 &lt; /body &gt;
 &lt; /html &gt;
 </pre>
-            <p> --> 스크린 리더에서 '반응형웹'라고만 읽어서 제목인지 알 수 가 없음</p>
-<pre class="box">&lt; !DOCTYPE html &gt;
+                <p class="t_desc"> --> 스크린 리더에서 '반응형웹'라고만 읽어서 제목인지 알 수 가 없음</p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
 &lt; html lang="ko" &gt;
 &lt; head &gt;
         &lt;meta charset = "UTF-8"&gt;
@@ -171,8 +183,19 @@
 &lt; /body &gt;
 &lt; /html &gt;
 </pre>
-                            <p> --> 첫 제목을 의미하는 &lt;h1&gt;태그 덕분에 '반응형웹 헤딩 일'이라고 읽어줌</p>
-        </article>
-    </section>
+                <p class="t_desc"> --> 첫 제목을 의미하는 &lt;h1&gt;태그 덕분에 '반응형웹 헤딩 일'이라고 읽어줌</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
 </body>
 </html>
