@@ -60,49 +60,56 @@
             justify-content: space-between;
         }
         .image {
-            width: 32%;
-            height: 520px;
+            width: 31%;
+            position: relative;
+            overflow: hidden;
         }
-        .image.img1{
-            background: url(img/image_type02_01.jpg) no-repeat center;
+        .image__box{}
+        .image__box img{
+            object-fit: cover;
+            transition: all 0.6s ease-in;
         }
-        .image.img2{
-            background: url(img/image_type02_02.jpg) no-repeat center;
-        }
-        .image.img3{
-            background: url(img/image_type02_03.jpg) no-repeat center;
-        }
-        .image .box{
+        .image__desc{
+            position: absolute;
+            left: 0;
+            bottom: -100px;
             width: 100%;
             height: 100px;
-            margin-top: 420px;
             text-align: center;
-            color: #fff;
-            padding: 24px auto;
-            position: relative;
+            backdrop-filter: blur(10px);
+            padding: 23px 20px;
+            box-sizing: border-box;
+            transition: all 0.3s ease-in;
         }
-        .image .box h3 {
-            line-height: 68px;
+        .image:hover .image__desc{
+            bottom: 0;
         }
-        .image .box a{
-            color: #fff;
-            position:absolute;
-            bottom: 24px;
-            left: 0;
-            right: 0;
-
-        }
-        .image.img1 .box{
-            background-color: #1E130F;
-        }
-        .image.img2 .box{
-            background-color: #4B3937;
-        }
-        .image.img3 .box{
-            background-color: #2C363C;
+        .image:hover .image__box img {
+            transform: scale(1.05);
         }
 
-    </style>
+        .img1 .image__desc{
+            background-color: rgba(30,19,15,0.1);
+        }
+        .img2 .image__desc{
+            background-color: rgba(75,57,55,0.1);
+        }
+        .img3 .image__desc{
+            background-color: rgba(44,54,60,0.1);
+        }
+        .image__desc h3{
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .image__desc .more{
+            color: #fff;
+            font-size: 16px;
+        }
+        .image__desc .more:hover{
+            text-decoration: underline;
+        }
+    </style> 
 </head>
 <body>
     <section id="imageType02" class="image__wrap gmark section gray">
@@ -112,21 +119,30 @@
         </p>
         <div class="image__inner container">
             <article class="image img1">
-                <div class="box">
-                    <h3 class="desc">떠나요</h3>
-                    <a href="#" title="자세히 보기">자세히 보기</a>
+                <figure class="image__box">
+                    <img src="img/image_type02_01.jpg" alt="dd">
+                </figure>
+                <div class="image__desc">
+                    <h3>떠나요</h3>
+                    <a href="#" class="more" title="자세히 보기">자세히 보기</a>
                 </div>
             </article>
             <article class="image img2">
-                <div class="box">
+                <figure class="image__box">
+                    <img src="img/image_type02_02.jpg" alt="dd">
+                </figure>
+                <div class="image__desc">
                     <h3>떠나요</h3>
-                    <a href="#" title="자세히 보기">자세히 보기</a>
+                    <a href="#" class="more" title="자세히 보기">자세히 보기</a>
                 </div>
             </article>
             <article class="image img3">
-                <div class="box">
+                <figure class="image__box">
+                    <img src="img/image_type02_03.jpg" alt="dd">
+                </figure>
+                <div class="image__desc">
                     <h3>떠나요</h3>
-                    <a href="#" title="자세히 보기">자세히 보기</a>
+                    <a href="#" class="more" title="자세히 보기">자세히 보기</a>
                 </div>
             </article>
         </div>
