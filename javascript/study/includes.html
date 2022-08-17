@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자바스크립트 : 문자열 결합 / 템플릿 문자열 </title>
+    <title>자바스크립트 : includes </title>
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dracula.css">
@@ -70,84 +70,40 @@
     <main id="main">
         <!--main start-->
         <div class="document">
-            <h2 class="t_tit">문자열 결합 / 템플릿 문자열</h2>
+            <h2 class="t_tit">includes()</h2>
             <p class="t_desc2">
-                자바스크립트에서 문자열을 이어붙이는 방법은 세가지가 있습니다.
-                <br>1. "+" 연산자를 사용하기
-                <br>2. concat()함수를 사용하기
-                <br>3. join()함수를 사용해서 배열을 문자열로 합치기
-                <br>이 중 저희는 1번의 내용에 대해 학습하겠습니다.
-                <br><br>내장된 표현식을 허용하는 문자열 리터럴({}같은것)입니다.
-                따옴표 대신 ``(백틱)문자로 문자열을 감싸서 만들고 ${}안에 표현식을 넣습니다.
+                이 메서드는 여태까지의 검색 메서드와는 다르게 반환을 불린값으로 해준다는 특징이 있습니다.
             </p>
             <hr>
-            <p class="t_tit2">■ 예시1</p>
+            <h3 class="t_tit2">■ 문법</h3>
+            <p class="t_desc">
+                문자열 포함 여부를 검색해서 <i>불린(true/false)로 반환</i>합니다.
+            </p>
+            <p class="t_box">
+                "문자열".includes(검색값)
+                <br>"문자열".includes(검색값, 시작값)
+            </p>
+            <h3 class="t_tit2">■ 특징</h3>
+            <p class="t_desc">
+                ▶ 검색값은 필수요소이며, 대소문자를 구분합니다.
+                <br>▶ 시작값이 없으면 전체 문자열을 대상으로 합니다.
+            </p>
+            <h3 class="t_tit2">■ 예시</h3>
+            <p class="t_desc">
+                이해를 돕기 위해 예시를 들어봅시다. 주석으로 결과값을 작성하였습니다.
+            </p>
             <div class="t_code">
-<pre><code class="language-js">const str1 = "자바스크립트";
-const str2 = "제이쿼리";
-
-console.log(str1 + str2);
+<pre><code class="language-js">const str1 ="javascript reference";
+const currentStr1 = str1.includes("javascript"); //true
+const currentStr2 = str1.includes("j"); //true
+const currentStr3 = str1.includes("b"); //false
+const currentStr4 = str1.includes("reference"); //true
+const currentStr5 = str1.includes("reference", 1); //true
+const currentStr6 = str1.includes("reference", 11); //true
+const currentStr7 = str1.includes("reference", 12); //false
 </code></pre>
             </div>
-            <div class="result">
-                <details>   
-                    <summary>결과보기</summary>
-                    <div>
-                        자바스크립트제이쿼리
-                    </div>
-                </details>
-            </div>
-
-            <p class="t_tit2">■ 예시2</p>
-            <div class="t_code">
-<pre><code class="language-js">const num1 = 100;
-const num2 = 200;
-
-console.log(num1 + num2);
-</code></pre>
-            </div>
-            <div class="result">
-                <details>   
-                    <summary>결과보기</summary>
-                    <div>
-                        300
-                    </div>
-                </details>
-            </div>
-            <p class="t_tit2">■ 예시3</p>
-            <div class="t_code">
-<pre><code class="language-js">const text1 = "모던";
-const text2 = "자바스크립트";
-const text3 = "핵심";
-
-console.log("나는 " + text1 + "(modern) " + text2 + "(javascript) " + text3 +"을 배우고 싶다.");
-</code></pre>
-            </div>
-            <div class="result">
-                <details>   
-                    <summary>결과보기</summary>
-                    <div>
-                        나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.
-                    </div>
-                </details>
-            </div>
-            <p class="t_tit2">■ 예시4</p>
-            <div class="t_code">
-<pre><code class="language-js">const text1 = "모던";
-const text2 = "자바스크립트";
-const text3 = "핵심";
-
-console.log(`나는 ${text1}(modern) ${text2}(javascript) ${text3}을 배우고 싶다.`);
-</code></pre>
-            </div>
-            <div class="result">
-                <details>   
-                    <summary>결과보기</summary>
-                    <div>
-                        나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.
-                    </div>
-                </details>
-            </div>
+            
         </div>
     </main> <!-- //main end -->
     <footer id="footer">
