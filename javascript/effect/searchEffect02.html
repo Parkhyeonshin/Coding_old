@@ -149,18 +149,26 @@
             // 전채 갯수 구하기
             searchInfo.textContent = searchList.length
 
+
             // 
             searchBox.addEventListener("keyup", () => {
                 const searchWord = searchBox.value;     //사용자가 입력한 키워드
 
                 searchList.forEach(el => {
                     const cssName = el.dataset.name;        //CSS 속성 모든 값
-                    
+                    const cssType = el.dataset.type;
+                    console.log(cssType);
+
                     if(cssName.includes(searchWord)){
                         el.classList.remove("hide");
                     } else{
                         el.classList.add("hide");
-                    }
+                    };
+                    if(cssType.includes(searchWord)){
+                        el.classList.remove("hide");
+                    } else{
+                        el.classList.add("hide");
+                    };
                 });
             });
 
