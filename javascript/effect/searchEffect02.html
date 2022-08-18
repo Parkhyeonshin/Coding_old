@@ -127,6 +127,31 @@
                         <li data-name="border-spacing" data-type="테두리"><strong>border-spacing</strong>: 인접한 표 칸의 테두리 간격을 지정합니다.</li>
                         <li data-name="border-start-end-radius" data-type="테두리"><strong>border-start-end-radius</strong>: 요소의 블록 시작과 인라인 끝면 사이의 모서리에 영향을줍니다.</li>
                         <li data-name="border-start-start-radius" data-type="테두리"><strong>border-start-start-radius</strong>: 블록 시작 측면과 인라인 시작 측면 사이의 모서리에 영향을줍니다.</li>
+                        <li data-name="border-style" data-type="테두리"><strong>border-style</strong>: 요소 테두리 네 면의 스타일을 지정합니다.</li>
+                        <li data-name="border-top" data-type="테두리"><strong>border-top</strong>: 요소의 위쪽 테두리를 설정합니다.</li>
+                        <li data-name="border-top-color" data-type="테두리"><strong>border-top-color</strong>: 요소의 위쪽 테두리 색상을 지정합니다.</li>
+                        <li data-name="border-top-left-radius" data-type="테두리"><strong>border-top-left-radius</strong>: 상자의 왼쪽 위 모서리를 정의합니다.</li>
+                        <li data-name="border-top-right-radius" data-type="테두리"><strong>border-top-right-radius</strong>: 상자의 오른쪽 위 모서리를 정의합니다.</li>
+                        <li data-name="border-top-style" data-type="테두리"><strong>border-top-style</strong>: 요소 테두리의 위쪽 스타일을 지정합니다.</li>
+                        <li data-name="border-top-width" data-type="테두리"><strong>border-top-width</strong>: 요소의 위쪽 테두리 너비를 지정합니다.</li>
+                        <li data-name="border-width" data-type="테두리"><strong>border-width</strong>: 요소 네 면 테두리의 너비를 설정합니다.</li>
+                        <li data-name="bottom" data-type="위치"><strong>bottom</strong>: 해당 태그 위치를 하단 기준으로 어느 높이에 위치시킬건지 지정.</li>
+                        <li data-name="box-decoration-break" data-type="테두리"><strong>box-decoration-break</strong>: 컬럼 및 줄바꿈시 테두리와 패딩의 방식을 설정합니다.</li>
+                        <li data-name="box-shadow" data-type="테두리"><strong>box-shadow</strong>: 요소의 테두리를 감싼 그림자 효과를 추가합니다.</li>
+                        <li data-name="box-sizing" data-type="기타"><strong>box-sizing</strong>: 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성입니다.</li>
+                        <li data-name="break-after" data-type="중단"><strong>break-after</strong>: 속성 세트 페이지, 열, 또는 지역 구분은 생성 된 박스 전에 행동해야하는 방법. 생성 된 상자가 없으면 속성이 무시됩니다.</li>
+                        <li data-name="break-before" data-type="중단"><strong>break-before</strong>: 속성 세트 페이지, 열, 또는 지역 구분은 생성 된 박스 전에 행동해야하는 방법. 생성 된 상자가 없으면 속성이 무시됩니다.</li>
+                        <li data-name="break-inside" data-type="중단"><strong>break-inside</strong>: 속성 설정 페이지, 열, 또는 지역 나누기 생성 된 상자 안에 행동해야하는 방법. 생성 된 상자가 없으면 속성이 무시됩니다.</li>
+                        <li data-name="caption-side" data-type="표"><strong>caption-side</strong>: 표(table)의 캡션의 위치를 정하는 속성입니다.</li>
+                        <li data-name="caret-color" data-type="인풋"><strong>caret-color</strong>: input의 커서 색을 정의합니다.</li>
+                        <li data-name="clear" data-type="플롯"><strong>clear</strong>: float 요소의 성질을 차단합니다.</li>
+                        <li data-name="clip" data-type="기타"><strong>clip</strong>: 보이는 영역을 설정합니다.</li>
+                        <li data-name="clip-path" data-type="기타"><strong>clip-path</strong>: 요소의 클리핑 범위를 지정합니다. 클리핑 범위 안의 부분은 보여지고, 바깥은 숨겨집니다.</li>
+                        <li data-name="color" data-type="글씨 글자 폰트"><strong>color</strong>: 글씨 색을 설정합니다.</li>
+                        <li data-name="ㅇㅇㅇ" data-type="ㅇㅇㅇ"><strong>ㅇㅇㅇ</strong>: ㅇㅇㅇ</li>
+                        <li data-name="ㅇㅇㅇ" data-type="ㅇㅇㅇ"><strong>ㅇㅇㅇ</strong>: ㅇㅇㅇ</li>
+                        
+                        <!-- 테두리, 플렉스, 블록, 백그라운드, 애니메이션, 중단, 표, 인풋, 플롯, 글씨, 글자, 기타 -->
                     </ul>
                 </div>
             </div>
@@ -159,16 +184,16 @@
                     const cssType = el.dataset.type;
                     console.log(cssType);
 
-                    if(cssName.includes(searchWord)){
+                    if(cssName.includes(searchWord)||cssType.includes(searchWord)){
                         el.classList.remove("hide");
                     } else{
                         el.classList.add("hide");
                     };
-                    if(cssType.includes(searchWord)){
-                        el.classList.remove("hide");
-                    } else{
-                        el.classList.add("hide");
-                    };
+                    // if(cssType.includes(searchWord)){
+                    //     el.classList.remove("hide");
+                    // } else{
+                    //     el.classList.add("hide");
+                    // };
                 });
             });
 
