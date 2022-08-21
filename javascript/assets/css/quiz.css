@@ -260,6 +260,7 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .quiz__selects label span::before{
     content: '';
@@ -286,6 +287,7 @@ body {
     width: 100%;
     text-align: center;
 }
+
 .quiz__confirm .check {
     font-size: 22px;
     border: 6px ridge #cacaca;

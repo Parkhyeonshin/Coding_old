@@ -896,7 +896,6 @@
                     <div class="ex"></div>
                 <div>
             `)  
-
             quizWrap.innerHTML = exam.join('');
         }
         updateQuiz();
@@ -911,19 +910,24 @@
                 const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
                 const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value
                 const quizView = document.querySelectorAll(".quiz__view");
-                console.log(quizSelects)
+                let count = 0;                                                  //정답 갯수 최초 0개 선언
                 if(userAnswer == question.answerResult){
                     console.log("정답")
                     quizView[number].classList.add("like");
+                    count += 1;                                                 //정답 갯수 +1
                 } else {
                     console.log("오답")
                     quizView[number].classList.add("dislike");
                     const div = document.createElement("div");
                     quizSelectsWrap.appendChild(div).innerHTML = `<p class="result">${question.answerEx}</p>`;
                 }
+                document.querySelector(".quiz__confirm .check").innerHTML = `${count} / ${number+=1}` ;
+                document.querySelector(".quiz__confirm .check").style.cssText = " color: #F05650; font-size: 40px; border-radius:20px";
             });
+
         }
         document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+
     </script>
 </body>
 
