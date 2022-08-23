@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-    
+    <style>
+     body {
+        font-size: 14px;
+    }
+    div {
+        font-size: 1.2em; 
+    }
+    span {
+        font-size: 1.2rem;
+    }
+    </style>
 <body>
     <!-- <script>
         {
@@ -17,7 +27,23 @@
 
         }
     </script> -->
-    <strong>인라인 요소</strong>
-    <span>인라인 요소는 한 줄로 출력됩니다.</span>
+    <div>
+        Test (14 * 1.2 = 16.8px)
+        <div>
+            Test (16.8 * 1.2 = 20.16px)
+            <div>
+                Test (20.16 * 1.2 = 24.192px)
+            </div>
+        </div>
+    </div>
+    <span>
+        rem (14 * 1.2 = 16.8px)
+        <span>
+            <br>rem (14 * 1.2 = 16.8px)
+            <span>
+                <br>rem (14 * 1.2 = 16.8px)
+            </span>
+        </span>
+    </span>
 </body>
 </html>
