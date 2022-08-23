@@ -1,0 +1,223 @@
+/* font */
+@import url('https://webfontworld.github.io/nhn/Godo.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Godo';
+    font-weight: 500;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+body.img01 {
+    background: url(../img/effect_bg01@2x.jpg) no-repeat center / cover;
+}
+body.img02 {
+    background: url(../img/effect_bg02@2x.jpg) no-repeat center / cover;
+}
+body.img03 {
+    background: url(../img/effect_bg03@2x.jpg) no-repeat center / cover;
+}
+body.img04 {
+    background: url(../img/effect_bg04@2x.jpg) no-repeat center / cover;
+}
+body.img05 {
+    background: url(../img/effect_bg05@2x.jpg) no-repeat center / cover;
+}
+body.img06 {
+    background: url(../img/effect_bg06@2x.jpg) no-repeat center / cover;
+}
+body.img07 {
+    background: url(../img/effect_bg07@2x.jpg) no-repeat center / cover;
+}
+body.img08 {
+    background: url(../img/effect_bg08@2x.jpg) no-repeat center / cover;
+}
+body.img09 {
+    background: url(../img/effect_bg09@2x.jpg) no-repeat center / cover;
+}
+body.img10 {
+    background: url(../img/effect_bg10@2x.jpg) no-repeat center / cover;
+}
+body::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.57);
+    z-index: -1;
+}
+img{
+    width: 100%;
+    vertical-align: top;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* header */
+#header {
+    color: #fff;
+    padding: 20px;
+}
+#header h1 {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #fff;
+    text-shadow: -1px 0 #8545f3, 0 1px #9359f7, 1px 0 #8545f3, 0 -1px #413be1;
+    /* text-shadow: 0 0 20px #8545f3; */
+    
+}
+#header p {
+    margin-bottom: 10px;
+    color: #C4BDD6;
+}
+
+#header li {
+    display: inline-block;
+}
+#header li a {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+/* footer */
+#footer {}
+#footer .source{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    padding: 10px 20px;
+    font-style: 14px;
+    color: #fff;
+}
+
+/* modal__wrap */
+.modal__wrap {}
+.modal__btn {}
+.modal__btn .btn {}
+.modal__cont {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(250,250,250,0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal__box {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
+}
+.modal__box .title{
+    padding-inline: 1rem;
+    cursor: grab;
+    background-color: hsl(0 1% 16%);
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 50px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+.modal__box .title .dot{
+    width: 15px;
+    height: 15px;
+    background-color: hsl(180 2% 50%);
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 30px;
+}
+.modal__box .title .dot::before{
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: hsl(253 19% 42%);
+    border-radius: 50%;
+}
+.modal__box .title .dot::after{
+    content: '';
+    position: absolute;
+    right: 25px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: hsl(253 19% 42%);
+    border-radius: 50%;
+}
+.modal__box .title .plus{
+    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+}
+.modal__box .title .tabs {
+    display: flex;
+    margin-left: 50px;
+}
+.modal__box .title .tabs > div {
+    color: rgb(211, 150, 255);
+    background-color: hsl(22 7% 14%);
+    padding: 0.25rem 0.8rem 0.25rem 0.8rem;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.modal__box .title .tabs > div.active {
+    background-color: rgba(121, 80, 255, 0.5);
+}
+.modal__box .title .tabs > div .em {
+    font-style: normal;
+}
+.modal__box .title .tabs > div .favicon {
+    margin-right: 0.4rem;
+    margin-top: 0.2rem;
+}
+.modal__box .title .tabs > div .close {
+    margin-left: 5rem;
+}
+.modal__box .cont {
+    background-color: #383838;
+    height: 550px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.modal__box .cont > div{
+    display: none;
+}
+.modal__box .cont > div.active{
+    display: block;
+}
