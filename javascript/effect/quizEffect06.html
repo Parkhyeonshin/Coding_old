@@ -165,8 +165,8 @@
         const quizConfirm = document.querySelector(".quiz__answer .confirm");
         const quizView = document.querySelector(".quiz__view");         //강아지
 
-        let quizCount = 0; 
-        let answerCount = 0;
+        let quizCount = 0;          //해당하는 문제의 숫자? (ex. 1번문제 = 0, 5번문제 = 4)
+        let answerCount = 0;        //정답갯수
 
         // 문제출력
         const updateQuiz = (index) => {
@@ -215,14 +215,14 @@
         const choiceSelected = (answer) => {
             let userAnswer = answer.textContent;        //사용자가 체크한 정답
             let currentAnswer = quizInfo[quizCount].answerResult;   //퀴즈카운트는 전역변수이므로 가져올 수 있음, 인덱스는 여기서는 가져올수없음 매개변수라서
-
+            
             if(userAnswer == currentAnswer){
                 quizView.classList.remove("dislike");
                 quizView.classList.add("like");
                 answerCount++;
             } else{
-                quizView.classList.add("dislike");
                 quizView.classList.remove("like");
+                quizView.classList.add("dislike");
                 quizResult.style.display = "block";
             }
             quizConfirm.style.display = "block";
@@ -230,17 +230,26 @@
 
         // 정답 확인 버튼
         const answerQuiz = () => {
-            quizCount ++;
-            updateQuiz(quizCount);
-            quizView.classList.remove("like", "dislike");
-
             // 마지막 문제일 경우
             if(quizInfo.length -1 == quizCount){
                 // quizConfirm.textContent = "총" + quizInfo.length +"문제 중 " + answerCount +" 문제 정답" ;
                 // const total = (100 / quizInfo.length) * answerCount;
                 // console.log(total)
                 quizConfirm.innerHTML = "총 " + quizInfo.length +"문제 중 " + answerCount +"문제 정답<br>" + ( (100 / quizInfo.length) * answerCount) + "점 입니다.";
-            }
+                return 0;
+            } 
+            
+            quizCount ++;
+            updateQuiz(quizCount);
+            quizView.classList.remove("like", "dislike");
+            
+            if(quizInfo.length -1 == quizCount){
+                // quizConfirm.textContent = "총" + quizInfo.length +"문제 중 " + answerCount +" 문제 정답" ;
+                // const total = (100 / quizInfo.length) * answerCount;
+                // console.log(total)
+                quizConfirm.innerHTML = "모든 문제를 푸셨습니다. <br>확인하기";
+
+            } 
         }
 
         quizConfirm.addEventListener("click", answerQuiz);
