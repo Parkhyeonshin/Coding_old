@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,8 @@
 
     <link rel="stylesheet" href="../assets/css/quiz.css">
 
+    <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/NexonMabinogi/MabinogiClassic.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,8 +21,8 @@
                 <li><a href="quizEffect01.html">1</a></li>
                 <li><a href="quizEffect02.html">2</a></li>
                 <li><a href="quizEffect03.html">3</a></li>
-                <li class="active"><a href="quizEffect04.html">4</a></li>
-                <li><a href="quizEffect05.html">5</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li class="active"><a href="quizEffect05.html">5</a></li>
                 <li><a href="quizEffect06.html">6</a></li>
             </ul>
         </nav>
@@ -27,57 +30,7 @@
     <!-- /header -->
     <main id="main">
         <div class="quiz__wrap">
-            <!-- <div class="quiz">
-                <span class="quiz__type"></span>
-                <h2 class="quiz__question">
-                    <span class="number"></span>
-                    <div class="ask"></div>
-                </h2>
-                <div class="quiz__view">
-                    <div class="true">정답🐾</div>
-                    <div class="false">오답 입니다!</div>
-                    <div class="dog">
-                        <div class="head">
-                            <div class="ears"></div>
-                            <div class="face"></div>
-                            <div class="eyes">
-                                <div class="teardrop"></div>
-                            </div>
-                            <div class="nose"></div>
-                            <div class="mouth">
-                                <div class="tongue"></div>
-                            </div>
-                            <div class="chin"></div>
-                        </div>
-                        <div class="body">
-                            <div class="tail"></div>
-                            <div class="legs"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="quiz__answer">
-                    <div class="quiz__selects">
-                        <label for="select1">
-                            <input type="radio" id="select1" class="select" name="select" value="1" >
-                            <span class="choice"></span>
-                        </label>
-                        <label for="select2">
-                            <input type="radio" id="select2" class="select" name="select" value="2" >
-                            <span class="choice"></span>
-                        </label>
-                        <label for="select3">
-                            <input type="radio" id="select3" class="select" name="select" value="3" >
-                            <span class="choice"></span>
-                        </label>    
-                        <label for="select4">
-                            <input type="radio" id="select4" class="select" name="select" value="4" >
-                            <span class="choice"></span>
-                        </label>
-                    </div>
-                    <button class="confirm">정답 확인하기</button>
-                    <div class="result"></div>
-                </div>
-            </div> -->
+            
         </div>
     </main>
     <!-- /main -->
@@ -87,8 +40,14 @@
     <!-- /footer -->
 
     <script>
+        // const num = [100, 200, 300, 400, 500];
 
-        // 문제정보
+        // num.forEach((el) =>{
+        //     console.log(el)     //100,200,300,400,500
+        //     document.querySelector(".quiz__wrap").innerHTML += el;
+        // });
+        
+        // 문제 정보
         const quizInfo = [
             {   
                 answerType : "웹디자인기능사 2013년 02회",
@@ -872,14 +831,14 @@
             }
         ];
 
+        // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
 
-        const updateQuiz = () => { 
+        function updateQuiz(){
             const exam = [];
-
-            quizInfo.forEach((question, number)=>{
+            quizInfo.forEach((question, number) =>{
                 exam.push(`
-                <div class="quiz">
+                    <div class="quiz">
                     <span class="quiz__type">${question.answerType}</span>
                     <h2 class="quiz__question">
                         <span class="number">${question.answerNum}. </span>
@@ -930,15 +889,45 @@
                 </div>
                 `);
             });
+
             exam.push(`
                 <div class="quiz__confirm">
                     <button class="check">정답 확인하기</button>
                     <div class="ex"></div>
                 </div>
-            `)
+            `)  
             quizWrap.innerHTML = exam.join('');
         }
         updateQuiz();
+
+        //정답 확인
+        function answerQuiz(){
+            const quizSelects = document.querySelectorAll(".quiz__selects");    //보기
+            const quizView = document.querySelectorAll(".quiz__view");          //강아지
+            //사용자가 체크한 라디오 박스  == 문제 정답
+            quizInfo.forEach((question, number) => {
+                const quizSelectsWrap = quizSelects[number];                    //전체 보기 박스
+                const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
+                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value
+                const quizView = document.querySelectorAll(".quiz__view");
+                let count = 0;                                                  //정답 갯수 최초 0개 선언
+                if(userAnswer == question.answerResult){
+                    console.log("정답")
+                    quizView[number].classList.add("like");
+                    count += 1;                                                 //정답 갯수 +1
+                } else {
+                    console.log("오답")
+                    quizView[number].classList.add("dislike");
+                    const div = document.createElement("div");
+                    quizSelectsWrap.appendChild(div).innerHTML = `<p class="result">${question.answerEx}</p>`;
+                }
+                document.querySelector(".quiz__confirm .check").innerHTML = `${count} / ${number+=1}` ;
+                document.querySelector(".quiz__confirm .check").style.cssText = " color: #F05650; font-size: 40px; border-radius:20px";
+            });
+
+        }
+        document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+
     </script>
 </body>
 
