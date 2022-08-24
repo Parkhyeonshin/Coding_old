@@ -3,17 +3,7 @@ const headerMenu = document.querySelector(".header_nav");
 
 const quizInfo = [
     {   
-        answerType : "웹디자인기능사 2013년 02회",
-        answerNum: "1",
-        answerAsk: "굿 디자인(good design)을 위한 디자인의 조건에 포함되지 않는 것은?",
-        answerChoice: {
-            1: "합목적성",
-            2: "독창성",
-            3: "심미성",
-            4: "모방성",
-        },
-        answerResult: "4",
-        answerEx : "디자인의 조건은 합목적성, 경제성, 심미성, 독창성, 질서성이 있습니다."
+        
     },
     {   
         answerType : "웹디자인기능사 2013년 02회",
