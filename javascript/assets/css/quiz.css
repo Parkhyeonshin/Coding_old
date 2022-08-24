@@ -297,12 +297,23 @@ body {
     font-family: "MabinogiClassic";
     line-height: 1.4;
     cursor: pointer;
-    margin: 40px 0;
+    margin: 40px 0 0 0;
     transition: background 0.3s;
 }
 
 .quiz__confirm .check:hover {
     background-color: #ffb53ed8;
+}
+.quiz__confirm .ex {
+    font-size: 22px;
+    border: 6px ridge #cacaca;
+    padding: 13px 60px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "MabinogiClassic";
+    margin: 0 auto;
+    width: 271.13px;
+    background-color: #f0f0f0;
 }
 
 

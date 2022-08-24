@@ -18,8 +18,8 @@
                 <li><a href="quizEffect01.html">1</a></li>
                 <li><a href="quizEffect02.html">2</a></li>
                 <li><a href="quizEffect03.html">3</a></li>
-                <li class="active"><a href="quizEffect04.html">4</a></li>
-                <li><a href="quizEffect05.html">5</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li class="active"><a href="quizEffect05.html">5</a></li>
                 <li><a href="quizEffect06.html">6</a></li>
             </ul>
         </nav>
@@ -872,6 +872,8 @@
             }
         ];
 
+        let count = 0;
+
         const quizWrap = document.querySelector(".quiz__wrap");
 
         const updateQuiz = () => { 
@@ -936,9 +938,54 @@
                     <div class="ex"></div>
                 </div>
             `)
-            quizWrap.innerHTML = exam.join('');
+            quizWrap.innerHTML = exam.join('');             //쉼표제거
         }
         updateQuiz();
+
+        
+
+        // 정답 확인
+        const answerQuiz = () => {
+            const quizSelects = document.querySelectorAll(".quiz__selects");        //객관식 보기
+
+            // 사용자가 체크한 보기 == 문제 정답
+            quizInfo.forEach((question, number) => {
+                const userSelector = `input[name=select${number}]:checked`;         //사용자가 체크한 것
+                const quizSelectsWrap = quizSelects[number];
+                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value;
+                //체크한것의 벨류값을 가져와서 비교해야 하므로 ().value 그리고 빈객체(=미선택)도 일단 가져오기위해 or사용
+                const quizView = document.querySelectorAll(".quiz__view");          //강아지
+
+                if(userAnswer == question.answerResult){
+                    console.log("정답")
+                    quizView[number].classList.add("like");
+                    count ++;
+                    
+                } else{
+                    console.log("오답")
+                    quizView[number].classList.add("dislike");
+                    const divBox = document.createElement("div");
+                    quizSelectsWrap.appendChild(divBox).innerHTML = `<p class=result>
+                        ${question.answerEx}</p>`;
+                }
+                    if(count >= 36){
+                            document.querySelector(".quiz__confirm .ex").innerHTML = count + "/" + quizInfo.length + "<br>합격";
+                        } else {
+                            document.querySelector(".quiz__confirm .ex").innerHTML = count + "/" + quizInfo.length + "<br>불합격";
+                        }
+            });
+            // 정답 갯수
+            // 전체 문제수
+            console.log(quizInfo.length)
+            // 맞춘 갯수
+            console.log(count)
+
+        };
+        
+        
+        // 정답 확인 클릭
+        document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+        
     </script>
 </body>
 

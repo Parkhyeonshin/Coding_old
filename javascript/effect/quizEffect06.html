@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트</title>
+
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../javascript01.html">Quiz </a><em>객관식 다중형 (슬라이드 형식)</em></h1>
+        <nav>
+            <ul>
+                <li><a href="quizEffect01.html">1</a></li>
+                <li><a href="quizEffect02.html">2</a></li>
+                <li><a href="quizEffect03.html">3</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li><a href="quizEffect05.html">5</a></li>
+                <li class="active"><a href="quizEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- /header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <span class="quiz__type"></span>
+                <h2 class="quiz__question">
+                    <!-- <span class="number"></span>
+                    <div class="ask"></div> -->
+                </h2>
+                <div class="quiz__view">
+                    <div class="true">정답🐾</div>
+                    <div class="false">오답 입니다!</div>
+                    <div class="dog">
+                        <div class="head">
+                            <div class="ears"></div>
+                            <div class="face"></div>
+                            <div class="eyes">
+                                <div class="teardrop"></div>
+                            </div>
+                            <div class="nose"></div>
+                            <div class="mouth">
+                                <div class="tongue"></div>
+                            </div>
+                            <div class="chin"></div>
+                        </div>
+                        <div class="body">
+                            <div class="tail"></div>
+                            <div class="legs"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz__answer">
+                    <div class="quiz__selects">
+                        <!-- <label for="select1">
+                            <input type="radio" id="select1" class="select" name="select" value="1" >
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select2">
+                            <input type="radio" id="select2" class="select" name="select" value="2" >
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select3">
+                            <input type="radio" id="select3" class="select" name="select" value="3" >
+                            <span class="choice"></span>
+                        </label>    
+                        <label for="select4">
+                            <input type="radio" id="select4" class="select" name="select" value="4" >
+                            <span class="choice"></span>
+                        </label> -->
+                    </div>
+                    <div class="result"></div>
+                    <button class="confirm"> 다음 문제 ≫</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /main -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- /footer -->
+
+    <script>
+
+        // 문제정보
+        const quizInfo = [
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "1",
+                answerAsk: "굿 디자인(good design)을 위한 디자인의 조건에 포함되지 않는 것은?",
+                answerChoice: [
+                    "합목적성",
+                    "독창성",
+                    "심미성",
+                    "모방성",
+                ],
+                answerResult: "모방성",
+                answerEx : "디자인의 조건은 합목적성, 경제성, 심미성, 독창성, 질서성이 있습니다."
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "2",
+                answerAsk: "다음이 설명하는 것은? - 주어진 길이를 가장 이상적으로 나누는 비를 말하며 근사값이 약 1.619인 무리수",
+                answerChoice: [
+                    "비례",
+                    "황금비율",
+                    "삼각분할",
+                    "프로포션",
+                ],
+                answerResult: "황금비율",
+                answerEx : "황금비율(길이를 둘로 나누었을때 같은 비율)"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "3",
+                answerAsk: "색입체는 색의 3속성에 따라 합리적으로 배치한 3차원 색상환으로 (㉠)은/는 둘레의 원으로, (㉡)는 중심선으로부터 방사선으로, (㉢)은/는 중심축으로 배치한 것이다.",
+                answerChoice: [
+                    "㉠ 색상, ㉡ 채도, ㉢ 명도",
+                    "㉠ 색상, ㉡ 명도, ㉢ 채도",
+                    "㉠ 채도, ㉡ 명도, ㉢ 색상",
+                    "㉠ 명도, ㉡ 채도, ㉢ 색상",
+                ],
+                answerResult: "㉠ 색상, ㉡ 채도, ㉢ 명도",
+                answerEx : "색상은 둘레의 원으로, 채도는 중심선으로부터 방사선으로, 명도는 중심축으로 배치한 것이다"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "4",
+                answerAsk: '입체파(Cubism)의 가장 대표적인 화가는?',
+                answerChoice: [
+                    "피카소",
+                    "쿠르베",
+                    "찰스 자보",
+                    "도미에",
+                ],
+                answerResult: "피카소",
+                answerEx : "피카소는 대표적인 입체파 화가이다"
+            },
+            {   
+                answerType : "웹디자인기능사 2013년 02회",
+                answerNum: "5",
+                answerAsk: "컬러 인쇄를 위해 C, M, Y, K 4색의 네거필름으로 만드는 과정을 무엇이라 하는가?",
+                answerChoice: [
+                    "색분해",
+                    "색상좌표",
+                    "색도도",
+                    "색 수정",
+                ],
+                answerResult: "색분해",
+                answerEx : "색상좌표 (=rgb), 색도도(색도 좌표를 그림으로 표시한 것),"
+            },
+        ];
+
+        // 선택자
+        const quizQuestion = document.querySelector(".quiz__question");     //문제 번호, 질문
+        const quizSelects = document.querySelector(".quiz__selects");       //객관식 보기
+        const quizName = document.querySelector(".quiz__type");
+        const quizResult = document.querySelector(".quiz__answer .result");
+        const quizConfirm = document.querySelector(".quiz__answer .confirm");
+        const quizView = document.querySelector(".quiz__view");         //강아지
+
+        let quizCount = 0; 
+        let answerCount = 0;
+
+        // 문제출력
+        const updateQuiz = (index) => {
+            const questionTag = `
+                <span class="number">${quizInfo[index].answerNum}. </span>
+                <div class="ask">${quizInfo[index].answerAsk}</div>
+            `;
+            const choiceTag = `
+                <label for="select1">
+                    <input type="radio" id="select1" class="select" name="select" value="1" >
+                    <span class="choice">${quizInfo[index].answerChoice[0]}</span>
+                </label>
+                <label for="select2">
+                    <input type="radio" id="select2" class="select" name="select" value="2" >
+                    <span class="choice">${quizInfo[index].answerChoice[1]}</span>
+                </label>
+                <label for="select3">
+                    <input type="radio" id="select3" class="select" name="select" value="3" >
+                    <span class="choice">${quizInfo[index].answerChoice[2]}</span>
+                </label>    
+                <label for="select4">
+                    <input type="radio" id="select4" class="select" name="select" value="4" >
+                    <span class="choice">${quizInfo[index].answerChoice[3]}</span>
+                </label>
+            `;
+
+            // 문제 출력
+            quizName.innerText = quizInfo[0].answerType;    //기출문제 회차
+            quizQuestion.innerHTML = questionTag;           //번호, 질문
+            quizSelects.innerHTML = choiceTag;              //객관식
+            quizResult.innerHTML = quizInfo[0].answerEx;    //해설
+
+            const quizChoice = quizSelects.querySelectorAll(".choice");
+
+            for(let i=0; i<quizChoice.length; i++){
+                quizChoice[i].setAttribute("onclick","choiceSelected(this)")
+            }
+
+            // 문제, 해설 숨기기
+            quizResult.style.display = "none";
+            quizConfirm.style.display = "none";
+        };
+        updateQuiz(quizCount);
+
+        const choiceSelected = (answer) => {
+            let userAnswer = answer.textContent;        //사용자가 체크한 정답
+            let currentAnswer = quizInfo[quizCount].answerResult;   //퀴즈카운트는 전역변수이므로 가져올 수 있음, 인덱스는 여기서는 가져올수없음 매개변수라서
+
+            if(userAnswer == currentAnswer){
+                quizView.classList.remove("dislike");
+                quizView.classList.add("like");
+                answerCount++;
+            } else{
+                quizView.classList.add("dislike");
+                quizView.classList.remove("like");
+                quizResult.style.display = "block";
+            }
+            quizConfirm.style.display = "block";
+        }
+
+        // 정답 확인 버튼
+        const answerQuiz = () => {
+            quizCount ++;
+            updateQuiz(quizCount);
+            quizView.classList.remove("like", "dislike");
+
+            // 마지막 문제일 경우
+            if(quizInfo.length -1 == quizCount){
+                // quizConfirm.textContent = "총" + quizInfo.length +"문제 중 " + answerCount +" 문제 정답" ;
+                // const total = (100 / quizInfo.length) * answerCount;
+                // console.log(total)
+                quizConfirm.innerHTML = "총 " + quizInfo.length +"문제 중 " + answerCount +"문제 정답<br>" + ( (100 / quizInfo.length) * answerCount) + "점 입니다.";
+            }
+        }
+
+        quizConfirm.addEventListener("click", answerQuiz);
+    </script>
+</body>
+
+</html>
