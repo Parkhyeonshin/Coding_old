@@ -8,66 +8,6 @@
 
     <link rel="stylesheet" href="../assets/css/slider.css">
     <link rel="stylesheet" href="../assets/css/androidstudio.css">
-
-    <style>
-    
-    /* slider */
-        .slider__wrap {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .slider__img{
-            position: relative;
-            width: 800px;
-            height: 450px;
-        }
-        .slider {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        .slider::before{
-            position: absolute;
-            left: 5px;
-            top: 5px;
-            background: rgba(0,0,0,0.4);
-            color:white;
-            padding: 5px 10px;
-        }
-        .slider:nth-child(1){
-            z-index: 5;
-        }
-        .slider:nth-child(1)::before{
-            content: '이미지1';
-        }
-        .slider:nth-child(2){
-            z-index: 4;
-        }
-        .slider:nth-child(2)::before{
-            content: '이미지2';
-        }
-        .slider:nth-child(3){
-            z-index: 3;
-        }
-        .slider:nth-child(3)::before{
-            content: '이미지3';
-        }
-        .slider:nth-child(4){
-            z-index: 2;
-        }
-        .slider:nth-child(4)::before{
-            content: '이미지4';
-        }
-        .slider:nth-child(5){
-            z-index: 1;
-        }
-        .slider:nth-child(5)::before{
-            content: '이미지5';
-        }
-    </style>
 </head>
 <body class="img01">
     <header id="header">
@@ -85,17 +25,7 @@
     </header>
     <!-- //header -->
     <main id="main">
-        <section id="sliderType01">
-            <div class="slider__wrap">
-                <div class="slider__img">
-                    <div class="slider"><img src="../assets/img/effect_img01.jpg" alt="이미지1"></div>
-                    <div class="slider"><img src="../assets/img/effect_img02.jpg" alt="이미지2"></div>
-                    <div class="slider"><img src="../assets/img/effect_img03.jpg" alt="이미지3"></div>
-                    <div class="slider"><img src="../assets/img/effect_img04.jpg" alt="이미지4"></div>
-                    <div class="slider"><img src="../assets/img/effect_img05.jpg" alt="이미지5"></div>
-                </div>
-            </div>
-        </section>
+
     </main>
     <!-- //main -->
     <footer id="footer">
@@ -349,43 +279,43 @@ searchList.forEach(el => {
 
 
     <script src="../assets/js/highlight.min.js"></script>
-    <script src="../assets/js/common.js"></script>
     <script>
-        const sliderWrap = document.querySelector(".slider__wrap");
-        const sliderImg = sliderWrap.querySelector(".slider__img");
-        const slider = sliderImg.querySelectorAll(".slider");
+        hljs.highlightAll();
 
-        let currentIndex = 0;       //현재 보이는 이미지
-        let sliderCount = slider.length;        //이미지 갯수
+        // 모달
+        const modalBtn = document.querySelector(".modal__btn");
+        const modalClose = document.querySelector(".modal__close");
+        const modalCont = document.querySelector(".modal__cont");
 
-        // 함수를 여러번 반복해서 실행하기위해서 사용함, 1000=1s
-        setInterval(() =>{
-            // console.log("실행")  <-- clg로확인하면 1초마다실행중임
-            
-            let nextIndex = (currentIndex + 1) % 5;    //다음이미지
-            
-            slider[currentIndex].style.opacity = "0";      
-            slider[nextIndex].style.opacity = "1";      
+        modalBtn.addEventListener("click", () => {
+            modalCont.classList.add("show");
+            modalCont.classList.remove("hide");
+        })
+        modalClose.addEventListener("click", () => {
+            modalCont.classList.add("hide");
+        })
+        
 
-            currentIndex = nextIndex;
-            console.log(currentIndex)
-          
-            // 0s -> 1s첫번째 이미지를 안보이게, 두번째 이미지를 보이게
-            // slider[0].style.opacity = "0";      //첫이미지x
-            // slider[1].style.opacity = "1";      //두번째이미지o
 
-            // slider[1].style.opacity = "0";      //두번째 이미지x
-            // slider[2].style.opacity = "1";      //세번째 이미지o
+        // 탭 메뉴
+        const tabBtn = document.querySelectorAll(".modal__box .tabs > div");
+        const tabCont = document.querySelectorAll(".modal__box .cont > div")
 
-            // slider[2].style.opacity = "0";      //3번째 이미지x
-            // slider[3].style.opacity = "1";      //4번째 이미지o
+        tabBtn.forEach((element, index) => {
+            element.addEventListener("click", (event)=>{            
+                event.preventDefault();         
 
-            // slider[3].style.opacity = "0";      //4번째 이미지x
-            // slider[4].style.opacity = "1";      //5번째 이미지o
+                tabBtn.forEach(el => {
+                    el.classList.remove("active");
+                })
+                element.classList.add("active");
 
-            // slider[4].style.opacity = "0";      //5번째 이미지x
-            // slider[0].style.opacity = "1";      //6번째 이미지o
-        },1000)
+                tabCont.forEach(div => {
+                    div.style.display = "none";
+                });
+                tabCont[index].style.display = "block";     
+            });
+        });
     </script>
 </body>
 </html>
