@@ -199,7 +199,7 @@
             quizName.innerText = quizInfo[0].answerType;    //기출문제 회차
             quizQuestion.innerHTML = questionTag;           //번호, 질문
             quizSelects.innerHTML = choiceTag;              //객관식
-            quizResult.innerHTML = quizInfo[0].answerEx;    //해설
+            quizResult.innerHTML = quizInfo[index].answerEx;    //해설
 
             const quizChoice = quizSelects.querySelectorAll(".choice");
 
