@@ -1,5 +1,6 @@
 /* 웹폰트 import 방식 _ 스타일시트 제일위에 위치해야함*/
 @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+@import url('https://webfontworld.github.io/crown/CrownMychew.css');
 
 /* 리셋 */
 /* 여백 초기화 */
@@ -44,11 +45,26 @@ body{
 #footer a:hover{
     text-decoration: underline;
 }
+/* container */
+.container{
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
 /* 헤더 영역 */
+#header {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
 #header h1 a {
     font-size: 60px;
     font-weight: 700;
+    color:tan;
+    font-family: 'CrownMychew';
+
 }
 .header_nav {
 
@@ -59,12 +75,16 @@ body{
 .header_nav ul li.active a{
     background-color: #000;
     color: #fff;
+    font-family: 'CrownMychew';
+
 }
 .header_nav ul li a {
     border: 1px solid #222;
     padding: 8px 25px;
     display: inline-block;
     margin-bottom: 7px;
+    font-family: 'CrownMychew';
+
 }
 .header_nav ul li a:hover {
     background-color: #000;
@@ -102,6 +122,47 @@ body{
 }
 .main_sample .result {
     margin-bottom: 80px;
+    margin-top: 10px;
+    background: rgba(6, 10, 77, 0.438);
+    padding: 10px;
+    border-radius: 10px;
+}
+/* intro_menu */
+.intro_menu {
+    width: 50vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 166, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 4vw;
+    border-radius: 5vw;
+}
+.intro_menu li{
+    color: rgb(74, 2, 122);
+}
+.intro_menu li a{
+    color: rgb(36, 135, 148);
+    border-radius: 30%;
+    background-color: rgb(191, 135, 191);
+}
+.intro_menu li a:hover{
+    border-radius: 10%;
+    background-color: rgb(37, 202, 205);
+}
+
+@media (max-width: 600px){
+    .intro_menu {
+        width: 90%;
+        padding: 14px;
+    }
+    .intro_menu li {
+        font-size: 16px;
+    }
+    .intro_menu li a{
+        font-size: 16px;
+    }
 }
 
 /* sample */
