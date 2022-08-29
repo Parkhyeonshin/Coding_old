@@ -61,84 +61,125 @@
             <hr>
             <div class="t_desc"> 
                 ▶ 이번 02유형은 라이브러리 중 GSAP와 JQUERY를 사용했어요! 그래서 원본소스에는 js, GSAP, JQUERY가 올라갈 예정입니다. 
+                말로는 표현이 힘들기도 하고 이해도 잘 안되실 수 있어서 그림으로라도 준비해봤습니다. 오늘의 핵심은 밑의 그림을 참고하시면 되겠습니다.
             </div>
-            <h3 class="t_tit2">JS 소스 분석하기</h3>
+            <img src="../../../assets/tistory/SLIDE_02_blg01.jpg" alt="그림">
+            <h3 class="t_tit2">JS 소스</h3>
             <div class="t_code">
-<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
-const sliderImg = sliderWrap.querySelector(".slider__img");
-const slider = sliderImg.querySelectorAll(".slider");
+<pre><code class="language-js">const sliderInner = document.querySelector(".slider__inner");
+const slider = document.querySelectorAll(".slider");
 
-let currentIndex = 0;       //현재 보이는 이미지
-let sliderCount = slider.length;        //이미지 갯수
+let currentIndex = 0;
 
-// 함수를 여러번 반복해서 실행하기위해서 사용함, 1000=1s
-setInterval(() =>{
-    // console.log("실행")  &lt;-- clg로확인하면 1초마다실행중임
-    
-    let nextIndex = (currentIndex + 1) % sliderCount;    //다음이미지
-    
-    slider[currentIndex].style.opacity = "0";      
-    slider[nextIndex].style.opacity = "1";      
+sliderInner.style.transition = "all 1.6s";
+setInterval(()=>{
+    currentIndex  = (currentIndex + 1 )% slider.length;
 
-    currentIndex = nextIndex;
-    console.log(currentIndex)
-},1000)
+    sliderInner.style.transform = "translateX("+ -800 * currentIndex +"px)";
+},2000);
 </code></pre>
             </div>
-            
             <p class="t_tit2">■ 핵심 파헤치기✍</p>
             <p class="t_desc2">
-                이미지가 5개인데 이 이미지를 계속해서 바뀌게 해주어야 하는데요. 이미지의 순서는 각각 0부터 4까지라는 점은 이제는 
-                다들 아실거라 생각됩니다. 그런데 이 <i>0부터4까지를 계속해서 반복</i>해주어야 하는데 js로는 어떻게 구현할 수 있을까요?
-                들어가기에 앞서 밑의 체크포인트를  꼭!꼭! 숙지하고 읽어주세요.
-                <br><br>
-                ✔ x = y ?  일반 수학공식에서 "x는y와 같다"와 같이 해석되겠지만 우리는 절대 이렇게 해석하면 안돼요!❌
-                이 의미는 <i>y를 x에 대입</i>하라는 뜻입니다.
-                <br>✔ setInterval(,second) ? 이 메서드는 <i>지정한 ms초만큼 반복해서 실행</i>하는 메서드입니다. 
-
+                display:flex , overflow:hidden
+                <br><br>소스를 짜기전에 앞서서 준비해야할 사항이 있는데요. CSS에서 이 속성을 이용해서 이미지들을
+                <i>한줄로 표시</i>해주는 겁니다. 
+                <br> 그리고, 이번엔 한줄로 출력된 그림을 옆으로 밀리게끔 보여야 하기 때문에 1유형과같은 방식으로는 힘들어요. 
+                그림의 <i>넓이값이 800px이므로 우리는 이 점을 이용</i>해야 합니다.
             </p>
             <p class="t_box">
                 let currentIndex = 0; 
-                <br>let sliderCount = slider.length;
+                <br>sliderInner.style.transition = "all 1.6s";
             </p>
             <p class="t_desc">
-                ▶ 여기서 currentIndex는 현재 보이는 이미지의 순서를 의미합니다. 첫번째 이미지부터 보여야하므로 변수를 통해 0으로 선언합니다.
-                <br>그리고 전체 슬라이드 이미지의 갯수를 구하기 위해 length를 sliderCount라는 변수를 이용합니다.
+                ▶ 1번 유형을 보셨다면 아시겠지만 currentIndex는 현재 보이는 이미지의 순서를 의미합니다. 첫번째 이미지부터 보여야하므로 변수를 통해 0으로 선언합니다.
+                <br> 참고로 js를 좀 더 활용해보기 위해서 <i>transition효과는 js를 이용</i>해서 주었습니다.
+                이 효과를 1.6초동안 부여해주므로 딱딱하던 전환효과가 1.6초에 걸쳐 부드럽게 전환되는 효과를 얻을 수 있습니다.
             </p>
             <p class="t_box">
-                let nextIndex = (currentIndex + 1) % sliderCount;
+                currentIndex  = (currentIndex + 1 )% slider.length;
             </p>
             <p class="t_desc">
-                ▶ 첫 시작이 0이므로, 위의 값은 최초 시작시 0+1, 즉 1이됩니다. 그럼 1 % sliderCount(여기서는 5)이므로 nextIndex에는 1이 대입이 됩니다.
+                ▶ 첫 시작이 0이므로, 위의 값은 최초 시작시 0+1, 즉 1이됩니다. 그러면 이 1을 다시 같은 currentIndex에 대입합니다. 왜 이번엔 <i>nextindex를 사용하지 않을까요?</i>굳이 다음 이미지에대한 값이 필요가 없기 때문입니다.
+                왜냐하면 우리는 넓이값을 이용해서 전환효과를 줄거라서 그래요. 이해가 안된다면 밑의 구문을 한 번 봐주세요.
+
             </p>
             <p class="t_box">
-                slider[currentIndex].style.opacity = "0";      
-                <br>slider[nextIndex].style.opacity = "1";      
+                sliderInner.style.transform = "translateX("+ -800 * currentIndex +"px)";
             </p>
             <p class="t_desc">
-                ▶ 첫줄은 0번째 슬라이드(첫번째이미지)의 투명도를 0(투명)하게,
-                <br> 둘째줄은 1번재 슬라이드(두번재이미지)의 투명도를 1(불투명)하게 이므로 첫번째 이미지가 사라지고 두번째 이미지가 노출되게 됩니다.
+                앞서서 넓이값을 이용해야 한다고 했습니다. 그 이유가 여기서 나오는데요. 두번재 이미지부터는 오른쪽으로 800px(= -800px)만큼 이동하면 노출이 되겠죠?
+                그렇다면 초반에 <i>1로 대입된 값</i>이 <i>-800*1</i>, 즉 -800만큼 이동시키므로 <i>두번재 이미지가</i> 나오게 됩니다. 
+                <br> 그럼 다시 1로 받은 currentIndex값이 다시 윗줄로 올라가서 1+1 = 2 가 되므로 -800*2 ==> -1600이 됩니다. 그래서
+                세번재 이미지가 노출되게 되는거죠. 말로 표현하기 참 어려운 내용이네요^_^...한번 작성해보시면서 손으로 깨우치시는걸 추천드립니다 ^^!!!!
+            </p>
+            <h3 class="t_tit2">GSAP</h3>
+            <div class="t_code">
+<pre><code class="language-js">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    const slider = document.querySelectorAll(".slider");
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+        currentIndex = (currentIndex +1) % slider.length;
+
+        gsap.to(".slider__inner", {
+            duration : 1.6,
+            x : -800 * currentIndex,
+        });
+    }, 2000);
+&lt;/script&gt;
+</code></pre>
+            </div>
+            <p class="t_tit2">■ 핵심 파헤치기✍</p>
+            <p class="t_desc2">
+
+                GSAP는 자바스크립트 라이브러리의 일종인데요. 기존 CSS나 JS로도 충분히 동적인화면을 만들어낼 수는 있지만 이 GSAP는 
+                정교하고 세밀한 화면을 좀더 간편하게 설정할 수 있습니다. 이러한 라이브러리들을 사용하기 위해서는 호스팅된 서버에서 
+                직접 설치해서 사용할 수도 있지만 간편하게 CDN을 사용하면 쉽게 사용할 수 있습니다.
             </p>
             <p class="t_box">
-                currentIndex = nextIndex;
+                gsap.to(".slider__inner", {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;    duration : 1.6,
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;x : -800 * currentIndex,
+                <br>});
             </p>
             <p class="t_desc">
-                ▶ =는 대입이라고 했죠? js는 순서가 항상 위부터 아래입니다. 그래서 최초 1의 값을 대입받은 nextindex가 다시 currentIndex에 1을 대입시킵니다.
-                그리고 이 구조가 1000ms = 1초마다 반복되게 되는 겁니다!
-                <br>
+                GSAP만의 메서드인데요. 저희는 정말~ 편하게 이 메서드를 보고 숫자놀이만 쪼.끔! 해서 
+                js로 하던 효과를 동일하게 부여할 수 있습니다. duration은 전환효과의 동작시간을 뜻하고, x는 x축으로 얼마나 이동할지에 대한 값을 
+                입력해주면 됩니다.
             </p>
 
-            <h3 class="t_tit3"><i>Q. 근데 왜 0-4까지 되는건가요?</i></h3>
-            <p class="t_desc">
-                A. 간단합니다! <i>x % y 는 x를 y로 나눈 나머지값</i>을 구하는건데요. 위의 예제를 보자면
-                0 % 5 ==> 0
-                <br>1 % 5 ==> 1
-                <br>2 % 5 ==> 2
-                <br>3 % 5 ==> 3
-                <br>4 % 5 ==> 4
-                <br>5 % 5 ==> 0
-                <br> 이렇기 때문에 계속해서 무한으로 실행이 가능한겁니다. 더 이상은 표현못하겠어요! 
+            <h3 class="t_tit2">JQUERY</h3>
+            <div class="t_code">
+<pre><code class="language-js">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;    
+&lt;script&gt;
+    let currentIndex = 0;
+
+    setInterval(()=&gt;{
+        currentIndex = (currentIndex +1) % $(".slider").length;
+
+        $(".slider__inner").css("position", "relative");
+        $(".slider__inner").animate({
+            left: -800 * currentIndex
+        }, 600)
+    },2000);
+&lt;/script&gt;
+</code></pre>
+            </div>
+            <p class="t_tit2">■ 핵심 파헤치기✍</p>
+            <p class="t_desc2">
+
+                JQUERY도 자바스크립트 라이브러리의 일종인데요. 제이쿼리도 CDN을 이용해서 쉽게 사용할 수 있습니다.
             </p>
+            <p class="t_desc">
+                js는 doucument.querySlector 등등을 이용해서 장황하게 적어서 호출을 했는데요. 제이쿼리는 그냥 $표시하나면 호출을 쉽게 할 수 있습니다.
+                그래서 $를 사용해서 호출을 합니다. 그리고 제이쿼리를 이용한 코드에서는 animate를 left를 이용해서 애니메이션효과를 주었는데요. left, top, right, bottom등은 
+                position이 없으면 움직이지 않는 친구들이기때문에, .slider__inner에 position을 부여해준겁니다. 
+            </p>
+
+            
             
             <h1 class="t_tit3">- 끝.이.에.요 -</h1>
         </div>

@@ -10,10 +10,13 @@ hljs.highlightAll();
         modalCont.classList.add("show");
         modalCont.classList.remove("hide");
         modalClose.classList.add("show");
+        modalBtn.classList.add("active");
     })
     modalClose.addEventListener("click", () => {
         modalCont.classList.add("hide");
         modalClose.classList.add("hide");
+        modalBtn.classList.remove("active");
+
     })
 
 
@@ -24,16 +27,18 @@ hljs.highlightAll();
 
     tabBtn.forEach((element, index) => {
         element.addEventListener("click", (event)=>{            
-            event.preventDefault();         
-
+            event.preventDefault();
+            
             tabBtn.forEach(el => {
                 el.classList.remove("active");
             })
             element.classList.add("active");
-
+            
             tabCont.forEach(div => {
                 div.style.display = "none";
             });
             tabCont[index].style.display = "block";     
         });
     });
+
+    
